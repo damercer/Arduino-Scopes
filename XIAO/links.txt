@@ -1,0 +1,4 @@
+
+Register calculator:
+https://blog.thea.codes/getting-the-most-out-of-the-samd21-adc/
+
