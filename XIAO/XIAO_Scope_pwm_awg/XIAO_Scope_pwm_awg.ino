@@ -30,12 +30,14 @@ int addr;
 int data;
 int awgdata;
 int n;
+int m;
 int sync = 0;
 float Step;
 unsigned int at, at2, st, st2, stReal;
 int bmax=2048;
 int bs=1024;
-int ws=1024;
+int ns=1024;
+int ms=1024;
 int pwmf = 500;
 int pwid = 500;
 //
@@ -73,14 +75,21 @@ float nextVal (float curr, int min, int max) {
 // DAC output timer function fixed length of 1024 for now
 void updatedac() {
   if (awgon) {
+    if (n >= ns) n = 0;
+    if (m >= ms) m = 0;
     analogWrite(A0, awgouta[n]);
     if (awgpwnon) {
-      pwm(D10, pwmf, awgoutb[n]);
+      pwm(D10, pwmf, awgoutb[m]);
     }
     n++;
-    if (n >= ws) n = 0;
+    m++;
   } else {
     analogWrite(A0, 0);
+    n = 0;
+    m = 0;
+    if (awgpwnon) {
+      pwm(D10, pwmf, 0);
+    }
   }
 }
 // internal fill waveform array
@@ -103,8 +112,8 @@ void makewavea() {
   Step = ((Vmax-Vmin)/1023.0)*(cyclea/2.0);
 
   if (wavea == 1) { // make a sine wave shape
-    for (int j = 0; j < ws; j++){
-      int temp = offseta + (ampla * sin(2*cyclea*PI*j/ws));
+    for (int j = 0; j < ns; j++){
+      int temp = offseta + (ampla * sin(2*cyclea*PI*j/ns));
       if(temp > 1023){
         temp=1023;
       }
@@ -114,7 +123,7 @@ void makewavea() {
       awgouta[j] = temp;
     }
   } else if(wavea == 2){ // make a triangle wave shape
-    for (int j = 0; j < ws; j++){
+    for (int j = 0; j < ns; j++){
       float temp = nextVal(Curr, Vmin, Vmax);
       Curr = temp;
       if(temp > 1023){
@@ -126,7 +135,7 @@ void makewavea() {
       awgouta[j] = int(temp);
     }
   } else { // make a DC value = offset
-    for (int j = 0; j < ws; j++){
+    for (int j = 0; j < ns; j++){
       awgouta[j] = offseta;
     }
   }
@@ -184,10 +193,16 @@ void setup() {
             TimerTc3.attachInterrupt(updatedac);
           }
           break;
-        case 'B': // change number of AWG samples both channels must be the same length
-          ws = Serial.parseInt();
-          if(ws>bmax){
-            ws=bmax;
+        case 'N': // change number of AWG A samples 
+          ns = Serial.parseInt();
+          if(ns>bmax){
+            ns=bmax;
+          }
+          break;
+        case 'M': // change number of AWG B samples 
+          ms = Serial.parseInt();
+          if(ms>bmax){
+            ms=bmax;
           }
           break;
         case 'L': // load DAC AWG A Buffer data
@@ -212,7 +227,7 @@ void setup() {
           }
           awgouta[addr] = data;
           break;
-        case 'l': // load PWM AWG Buffer data using scope c array
+        case 'l': // load PWM AWG Buffer data
           addr = Serial.parseInt();
           if(addr > 2047){
               addr=2047;
@@ -254,7 +269,7 @@ void setup() {
           ampla = Serial.parseInt();
           makewavea();
           break;
-        case 'N': // change number of waveform cycles ch a
+        case 'C': // change number of waveform cycles ch a
           cyclea = Serial.parseInt();
           makewavea();
           break;
@@ -266,6 +281,8 @@ void setup() {
           c2 = Serial.read();
           if(c2=='o'){
             awgon = 1;
+            n = 0;
+            m = 0;
             TimerTc3.attachInterrupt(updatedac);
           }else{
             awgon = 0;
@@ -286,6 +303,7 @@ void setup() {
             awgpwnon = 1;
           }else{
             awgpwnon = 0;
+            pwm(D10, pwmf, 0);
           }
           break;
         case 's': // enable - disable PWM output awgpwnon
