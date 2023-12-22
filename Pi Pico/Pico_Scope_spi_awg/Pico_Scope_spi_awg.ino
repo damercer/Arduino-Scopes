@@ -1,4 +1,4 @@
-//Pico_Scope3 3 channel scope 
+//Pico_Scope3 3 channel scope with AWG using MCP dual 8/10/12 bit SPI DAC 
 #include "pico/stdlib.h"
 #include "hardware/adc.h"
 #include "hardware/pwm.h"
@@ -10,22 +10,24 @@
 #define ALARM_NUM 1
 #define ALARM_IRQ TIMER_IRQ_1
 
-uint8_t awgouta[4096];
-uint8_t awgoutb[4096];
+int awgouta[4096];
+int awgoutb[4096];
 
 int led = 25;
 int wavea;
+int waveb;
 int cyclea;
 int ampla;
 int offseta;
-int waveb;
 int cycleb;
 int amplb;
 int offsetb;
-int awgon;
+int awgona;
+int awgonb;
 int addr;
-uint8_t data;
+int data;
 int awgdata;
+int awgres;
 int n;
 int m;
 uint32_t tg;
@@ -39,26 +41,24 @@ int ms=1024;
 int pwmf = 500;
 int pwid = 500;
 
-void dacWrite() {
-  int avalue = awgouta[n] | 0b0000000100000000; //DACA 
-  int bvalue = awgoutb[m] | 0b0010010000000000; //DACB 
-  SPI.transfer16(avalue);
-  SPI.transfer16(bvalue);
-}
-
 static void alarm_irq(void) {
-  if (awgon == 1){
-    if (n >= ns) n = 0;
-    if (m >= ms) m = 0;
-    dacWrite();
-    n++;
-    m++;
-  } else {
-    n = 0;
-    m = 0;
-  }
   hw_clear_bits(&timer_hw->intr, 1u << ALARM_NUM);
   alarm_in_us_arm(at);
+  if (awgona == 1){ // send data to DAC A
+    if (n >= ns) n = 0;
+    SPI.transfer16(awgouta[n]);
+    n++;
+  } else {
+    n = 0;
+  }
+  if (awgonb == 1) { // send data to DAC B
+    if (m >= ms) m = 0;
+    SPI.transfer16(awgoutb[m]);
+    m++;
+  }
+  else {
+    m = 0;
+  }
 }
 
 static void alarm_in_us_arm(uint32_t delay_us) {
@@ -73,8 +73,8 @@ static void alarm_in_us(uint32_t delay_us) {
   alarm_in_us_arm(at);
 }
 
-void setup() {
-  at=10;
+void setup1() {
+  at=20;
   wavea = 1; // default to sine shape (for now)
   cyclea = 8; // default is 8 cycles in 1024 samples
   ampla = 127; // default is 127 or full 0 to 255 peak to prak
@@ -83,43 +83,20 @@ void setup() {
   cycleb = 8; // default is 8 cycles in 1024 samples
   amplb = 127; // default is 127 or full 0 to 255 peak to prak
   offsetb = 128; // default is 128 or mid range 0 to 255
-  awgon = 0; // default AWG off
-  SPI.begin(true);
-  SPI.beginTransaction(SPISettings(25000000, MSBFIRST, SPI_MODE0));
-  alarm_in_us(at);
+  awgona = 0; // default AWG A off
+  awgonb = 0; // default AWG B off
   makewavea(); 
 }
 
-void loop() {
+void loop1() {
   
 }
   
-void setup1() {
+void setup() {
   
   Serial.begin(2000000);
   pinMode(led, OUTPUT);
-  pinMode(0, OUTPUT);
-  pinMode(1, OUTPUT);
-  pinMode(2, OUTPUT);
-  pinMode(3, OUTPUT);
-  pinMode(4, OUTPUT);
-  pinMode(5, OUTPUT);
-  pinMode(6, OUTPUT);
-  pinMode(7, OUTPUT);
-  pinMode(8, OUTPUT);
-  pinMode(9, OUTPUT);
-  pinMode(10, OUTPUT);
-  pinMode(11, OUTPUT);
-  pinMode(12, OUTPUT);
-  pinMode(13, OUTPUT);
-  pinMode(14, OUTPUT);
-  pinMode(15, OUTPUT);
-  // pinMode(16, INPUT);
-  // pinMode(17, INPUT);
-  // pinMode(18, INPUT);
-  // pinMode(19, INPUT);
-  // pinMode(20, INPUT);
-  // pinMode(21, INPUT);
+  
   analogWriteFreq(pwmf);
   analogWriteRange(1000);
   adc_init();
@@ -127,10 +104,13 @@ void setup1() {
   adc_gpio_init(27); // ADC1
   adc_gpio_init(28); // ADC2
   adc_gpio_init(29); // ADC3
-  adc_select_input(0);  
+  adc_select_input(0);
+  SPI.begin(true);
+  SPI.beginTransaction(SPISettings(25000000, MSBFIRST, SPI_MODE0));
+  alarm_in_us(at); 
 }
 
-void loop1() {
+void loop() {
   uint8_t scopeahi[4096];
   uint8_t scopealow[4096];
   uint8_t scopebhi[4096];
@@ -147,12 +127,13 @@ void loop1() {
   char c, c2;
   uint32_t ta, TotalReal, StartReal;
   st=11;
+  awgres = 4095;
   while (true) { 
     if (Serial.available()){
       c=Serial.read();
       switch (c){
         case 'I': // read back FW Rev
-          Serial.println ("Pi Pico Scope 3.0");
+          Serial.println ("Pi Pico Scope mcp 3.0");
           break;
         case 'T': // change the AWG value of at in uSec both channels must be same rate
           at2 = Serial.parseInt();
@@ -183,8 +164,8 @@ void loop1() {
           c2 = Serial.read();
           if(c2=='D'){
             data = Serial.parseInt();
-            if(data > 255){
-              data=255;
+            if(data > awgres){
+              data=awgres;
             }
             if(data < 0){
               data=0;
@@ -192,7 +173,7 @@ void loop1() {
           } else {
             data = 0;
           }
-          awgouta[addr] = data;
+          awgouta[addr] = data | 0b0111000000000000; // address DACA
           break;
         case 'l': // load AWG B Buffer data
           addr = Serial.parseInt();
@@ -205,8 +186,8 @@ void loop1() {
           c2 = Serial.read();
           if(c2=='D'){
             data = Serial.parseInt();
-            if(data > 255){
-              data=255;
+            if(data > awgres){
+              data=awgres;
             }
             if(data < 0){
               data=0;
@@ -214,7 +195,7 @@ void loop1() {
           } else {
             data = 0;
           }
-          awgoutb[addr] = data;
+          awgoutb[addr] = data | 0b1111000000000000; // address DACB
           break;
         case 't': // change the Scope value of dt in uSec
           st2 = Serial.parseInt();
@@ -260,12 +241,20 @@ void loop1() {
           offsetb = Serial.parseInt();
           makewaveb();
           break;
-        case 'G': // enable - disable AWG output
+        case 'G': // enable - disable AWG A output
           c2 = Serial.read();
           if(c2=='o'){
-            awgon = 1;
+            awgona = 1;
           }else{
-            awgon = 0;
+            awgona = 0;
+          }
+          break;
+        case 'g': // enable - disable AWG B output
+          c2 = Serial.read();
+          if(c2=='o'){
+            awgonb = 1;
+          }else{
+            awgonb = 0;
           }
           break;
         case 'R': // Reset AWG start point at start of aquire
@@ -298,7 +287,7 @@ void loop1() {
           Serial.print ("V=");
           Serial.println ((int) VDD);
           break;
-        case '1': // do scope ch a single capture
+        case '0': // do scope ch a single capture
           // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
@@ -312,8 +301,8 @@ void loop1() {
             measa = adc_read();
             scopeahi[k] = (measa & 0xFF00) >> 8;
             scopealow[k] = measa & 0xFF;
-            digmeas = gpio_get_all();
-            digin[k] = digmeas >> 16;
+            digmeas = gpio_get_all() >> 3;
+            digin[k] = digmeas & 0x0F;
             ta+=st;
             while (ta>time_us_32());
           }
@@ -323,15 +312,13 @@ void loop1() {
           Serial.print("stReal= ");
           Serial.println(stReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
-            Serial.write((byte) 0x00);
-            Serial.write(scopechi[k]);
-            Serial.write(scopeclow[k]);
+            Serial.write(scopeahi[k]);
+            Serial.write(scopealow[k]);
             Serial.write(digin[k]);
           }
           digitalWrite(led, LOW);
           break;
-          //sleep_ms(1);
-        case '2': // do scope ch a and b single capture
+        case '1': // do scope ch a and b single capture
           // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
@@ -349,8 +336,8 @@ void loop1() {
             measb = adc_read();
             scopebhi[k] = (measb & 0xFF00) >> 8;
             scopeblow[k] = measb & 0xFF;
-            digmeas = gpio_get_all();
-            digin[k] = digmeas >> 16;
+            digmeas = gpio_get_all() >> 3;
+            digin[k] = digmeas & 0x0F;
             ta+=st;
             while (ta>time_us_32());
           }
@@ -360,7 +347,6 @@ void loop1() {
           Serial.print("stReal= ");
           Serial.println(stReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
-            Serial.write((byte) 0x00);
             Serial.write(scopeahi[k]);
             Serial.write(scopealow[k]);
             Serial.write(scopebhi[k]);
@@ -369,8 +355,81 @@ void loop1() {
           }
           digitalWrite(led, LOW);
           break;
-          //sleep_ms(1);
-        case '3': // do scope ch a b and c single capture
+        case '2': // do scope ch a and c single capture
+          // if sync is on reset start of awg buffer pointer
+          if (sync > 0 ) {
+            n = 0;
+            m = 0;
+            delayMicroseconds(st*2);
+          }
+          ta = time_us_32();
+          StartReal = ta;
+          for (int k = 0; k < bs; k++){ // Fill Buffer
+            adc_select_input(0);
+            measa = adc_read();
+            scopeahi[k] = (measa & 0xFF00) >> 8;
+            scopealow[k] = measa & 0xFF;
+            adc_select_input(2);
+            measc = adc_read();
+            scopechi[k] = (measc & 0xFF00) >> 8;
+            scopeclow[k] = measc & 0xFF;
+            digmeas = gpio_get_all() >> 3;
+            digin[k] = digmeas & 0x0F;
+            ta+=st;
+            while (ta>time_us_32());
+          }
+          TotalReal=time_us_32()-StartReal;
+          stReal=TotalReal/bs; // calculate the average time for each reading
+          digitalWrite(led, HIGH); // Toggel LED High while sending data
+          Serial.print("stReal= ");
+          Serial.println(stReal);
+          for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
+            Serial.write(scopeahi[k]);
+            Serial.write(scopealow[k]);
+            Serial.write(scopechi[k]);
+            Serial.write(scopeclow[k]);
+            Serial.write(digin[k]);
+          }
+          digitalWrite(led, LOW);
+          break;
+        case '3': // do scope ch b and c single capture
+          // if sync is on reset start of awg buffer pointer
+          if (sync > 0 ) {
+            n = 0;
+            m = 0;
+            delayMicroseconds(st*2);
+          }
+          ta = time_us_32();
+          StartReal = ta;
+          for (int k = 0; k < bs; k++){ // Fill Buffer
+            adc_select_input(1);
+            measb = adc_read();
+            scopebhi[k] = (measb & 0xFF00) >> 8;
+            scopeblow[k] = measb & 0xFF;
+            adc_select_input(2);
+            measc = adc_read();
+            scopechi[k] = (measc & 0xFF00) >> 8;
+            scopeclow[k] = measc & 0xFF;
+            digmeas = gpio_get_all() >> 3;
+            digin[k] = digmeas & 0x0F;
+            ta+=st;
+            while (ta>time_us_32());
+          }
+          TotalReal=time_us_32()-StartReal;
+          stReal=TotalReal/bs; // calculate the average time for each reading
+          digitalWrite(led, HIGH); // Toggel LED High while sending data
+          Serial.print("stReal= ");
+          Serial.println(stReal);
+          for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
+            Serial.write(scopebhi[k]);
+            Serial.write(scopeblow[k]);
+            Serial.write(scopechi[k]);
+            Serial.write(scopeclow[k]);
+            Serial.write(digin[k]);
+          }
+          digitalWrite(led, LOW);
+          break;
+        case '4': // do scope ch a b and c single capture
           // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
@@ -392,8 +451,8 @@ void loop1() {
             measc = adc_read();
             scopechi[k] = (measc & 0xFF00) >> 8;
             scopeclow[k] = measc & 0xFF;
-            digmeas = gpio_get_all();
-            digin[k] = digmeas >> 16;
+            digmeas = gpio_get_all() >> 3;
+            digin[k] = digmeas & 0x0F;
             ta+=st;
             while (ta>time_us_32());
           }
@@ -403,7 +462,6 @@ void loop1() {
           Serial.print("stReal= ");
           Serial.println(stReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
-            Serial.write((byte) 0x00);
             Serial.write(scopeahi[k]);
             Serial.write(scopealow[k]);
             Serial.write(scopebhi[k]);
@@ -414,7 +472,68 @@ void loop1() {
           }
           digitalWrite(led, LOW);
           break;
-        //sleep_ms(1);
+        case '5': // do scope ch b single capture
+          // if sync is on reset start of awg buffer pointer
+          if (sync > 0 ) {
+            n = 0;
+            m = 0;
+            delayMicroseconds(st*2);
+          }
+          ta = time_us_32();
+          adc_select_input(1);
+          StartReal = ta;
+          for (int k = 0; k < bs; k++){ // Fill Buffer
+            measb = adc_read();
+            scopebhi[k] = (measb & 0xFF00) >> 8;
+            scopeblow[k] = measb & 0xFF;
+            digmeas = gpio_get_all() >> 3;
+            digin[k] = digmeas & 0x0F;
+            ta+=st;
+            while (ta>time_us_32());
+          }
+          TotalReal=time_us_32()-StartReal;
+          stReal=TotalReal/bs; // calculate the average time for each reading
+          digitalWrite(led, HIGH); // Toggel LED High while sending data
+          Serial.print("stReal= ");
+          Serial.println(stReal);
+          for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
+            Serial.write(scopebhi[k]);
+            Serial.write(scopeblow[k]);
+            Serial.write(digin[k]);
+          }
+          digitalWrite(led, LOW);
+          break;
+        case '6': // do scope ch c single capture
+          // if sync is on reset start of awg buffer pointer
+          if (sync > 0 ) {
+            n = 0;
+            m = 0;
+            delayMicroseconds(st*2);
+          }
+          ta = time_us_32();
+          adc_select_input(2);
+          StartReal = ta;
+          for (int k = 0; k < bs; k++){ // Fill Buffer
+            measc = adc_read();
+            scopechi[k] = (measc & 0xFF00) >> 8;
+            scopeclow[k] = measc & 0xFF;
+            digmeas = gpio_get_all() >> 3;
+            digin[k] = digmeas & 0x0F;
+            ta+=st;
+            while (ta>time_us_32());
+          }
+          TotalReal=time_us_32()-StartReal;
+          stReal=TotalReal/bs; // calculate the average time for each reading
+          digitalWrite(led, HIGH); // Toggel LED High while sending data
+          Serial.print("stReal= ");
+          Serial.println(stReal);
+          for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
+            Serial.write(scopechi[k]);
+            Serial.write(scopeclow[k]);
+            Serial.write(digin[k]);
+          }
+          digitalWrite(led, LOW);
+          break;
       }
     }
   }
