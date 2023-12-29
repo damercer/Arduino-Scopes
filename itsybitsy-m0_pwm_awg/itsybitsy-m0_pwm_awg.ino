@@ -1,8 +1,15 @@
-//ItsyBitsy M0 Express Scope3 1/2/3 channel scope 1 internal awg (12/21/2023)
+//ItsyBitsy M0 Express Scope3 1/2/3 channel scope 1 internal awg (12/26/2023)
 //
 //#include "arduino_m0_tweak.hpp"
 #include <Adafruit_ZeroTimer.h>
+#include "Adafruit_NeoPixel.h"
 
+// Which pin on the Arduino is connected to the NeoPixels?
+#define PIN 1 // On Trinket or Gemma, suggest changing this to 1
+// How many NeoPixels are attached to the Arduino?
+#define NUMPIXELS 1 // Popular NeoPixel ring size
+Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+//
 #ifndef MULTIPLE_PIN_OPS_H
 #define MULTIPLE_PIN_OPS_H
 //
@@ -46,6 +53,14 @@ int pwid = 500;
 //
 void TC3_Handler() {
   Adafruit_ZeroTimer::timerHandler(3);
+}
+static inline void RGB_LED_off() {
+  pixels.begin(); // INITIALIZE NeoPixel strip object (REQUIRED)
+  pixels.clear(); // Set all pixel colors to 'off'
+  pixels.setPixelColor(0, pixels.Color(0, 0, 0));
+  pixels.show();   // Send the updated pixel colors to the hardware.
+  //strip.setPixelColor(0, strip.Color(0, 0, 255));
+  //strip.show();
 }
 //
 static inline void syncADC() {
@@ -243,7 +258,8 @@ void makewavea() {
 void setup() {
   Serial.begin(2000000);
   pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(LED_BUILTIN, LOW);
+  RGB_LED_off();
   wavea = 1; // default to sine shape (for now)
   cyclea = 8; // default is 8 cycles in 1024 samples
   ampla = 500; // default is 127 or full 0 to 255 peak to prak
@@ -463,6 +479,7 @@ void setup() {
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -478,7 +495,7 @@ void setup() {
           }
           TotalReal=micros()-StartReal;
           stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
           Serial.println(stReal);
           // dump buffer over serial
@@ -486,13 +503,14 @@ void setup() {
           Serial.write(digin, sizeof(digin));
           Serial.println("");
           //
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
           break;
           //
         case '1': // do scope ch a and b single capture
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -511,7 +529,7 @@ void setup() {
           }
           TotalReal=micros()-StartReal;
           stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
           Serial.println(stReal);
           // Dump Buffer over serial
@@ -520,13 +538,14 @@ void setup() {
           Serial.write(digin, sizeof(digin));
           Serial.println("");
           //
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
           break;
           //
         case '2': // do scope ch a and c single capture
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -545,7 +564,7 @@ void setup() {
           }
           TotalReal=micros()-StartReal;
           stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
           Serial.println(stReal);
           // Dump Buffer over serial
@@ -554,7 +573,7 @@ void setup() {
           Serial.write(digin, sizeof(digin));
           Serial.println("");
           //
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
           Serial.println("");
           break;
           //
@@ -562,6 +581,7 @@ void setup() {
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -580,7 +600,7 @@ void setup() {
           }
           TotalReal=micros()-StartReal;
           stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
           Serial.println(stReal);
           // Dump Buffer over serial
@@ -589,13 +609,14 @@ void setup() {
           Serial.write(digin, sizeof(digin));
           Serial.println("");
           //
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
           break;
           //
         case '4': // do scope ch a b and c single capture
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -617,7 +638,7 @@ void setup() {
           }
           TotalReal=micros()-StartReal;
           stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
           Serial.println(stReal);
           // Dump Buffer over serial
@@ -627,12 +648,13 @@ void setup() {
           Serial.write(digin, sizeof(digin));
           Serial.println("");
           //
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
           break;
         case '5': // do scope ch b single capture
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -648,7 +670,7 @@ void setup() {
           }
           TotalReal=micros()-StartReal;
           stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
           Serial.println(stReal);
           // Dump Buffer over serial
@@ -656,13 +678,14 @@ void setup() {
           Serial.write(digin, sizeof(digin));
           Serial.println("");
           //
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
           break;
           //
         case '6': // do scope ch c single capture
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -678,7 +701,7 @@ void setup() {
           }
           TotalReal=micros()-StartReal;
           stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
           Serial.println(stReal);
           // Dump Buffer over serial
@@ -686,13 +709,14 @@ void setup() {
           Serial.write(digin, sizeof(digin));
           Serial.println("");
           //
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
           break;
           //
         case '7': // do scope ch a single capture
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -708,7 +732,7 @@ void setup() {
           }
           TotalReal=micros()-StartReal;
           stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
           Serial.println(stReal);
           // Dump Buffer over serial
@@ -716,12 +740,13 @@ void setup() {
           Serial.write(digin, sizeof(digin));
           Serial.println("");
           //
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
           break;
         case '8': // do scope ch a and b single capture
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -740,7 +765,7 @@ void setup() {
           }
           TotalReal=micros()-StartReal;
           stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
           Serial.println(stReal);
           // Dump Buffer over serial
@@ -749,12 +774,13 @@ void setup() {
           Serial.write(digin, sizeof(digin));
           Serial.println("");
           //
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
           break;
         case '9': // do scope ch a b and c single capture
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -776,7 +802,7 @@ void setup() {
           }
           TotalReal=micros()-StartReal;
           stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
           Serial.println(stReal);
           Serial.write(scopea, sizeof(scopea));
@@ -785,7 +811,7 @@ void setup() {
           Serial.write(digin, sizeof(digin));
           Serial.println("");
           //
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
+          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
           break;
           //
         //delay(1);

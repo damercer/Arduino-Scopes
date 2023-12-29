@@ -1,4 +1,4 @@
-//Trinket M0 Scope3 1/2/3 channel scope 1 internal awg (12/21/2023)
+//Trinket M0 Scope3 1/2/3 channel scope 1 internal awg (12/26/2023)
 //
 //#include "arduino_m0_tweak.hpp"
 #include <Adafruit_ZeroTimer.h>
@@ -463,6 +463,7 @@ void setup() {
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -493,6 +494,7 @@ void setup() {
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -527,6 +529,7 @@ void setup() {
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -562,6 +565,7 @@ void setup() {
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -596,6 +600,7 @@ void setup() {
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -633,6 +638,7 @@ void setup() {
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -663,6 +669,7 @@ void setup() {
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -693,6 +700,7 @@ void setup() {
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -722,6 +730,7 @@ void setup() {
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
@@ -755,6 +764,7 @@ void setup() {
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
             n = 0;
+            m = 0;
             delayMicroseconds(10);
           }
           ta = micros();
