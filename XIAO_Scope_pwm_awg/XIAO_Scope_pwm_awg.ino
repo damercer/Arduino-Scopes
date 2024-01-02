@@ -1,4 +1,4 @@
-//XIAO Scope2 1/2/3 channel scope 1 internal awg (12/26/2023)
+//XIAO Scope2 1/2/3 channel scope 1 internal awg (12/29/2023)
 //
 #include <TimerTC3.h>
 
@@ -120,6 +120,24 @@ void ADC_init() {
   ADC->CTRLA.bit.ENABLE = 1;
   syncADC();
 }
+void DAC_init() {
+  // Simply rely on the built-in Arduino functions for initialization.
+  analogWriteResolution(10);
+  analogWrite(A0, 0);
+}
+void DAC_set_output(int16_t value) {
+  // DAC conversion time is approximately 2.85 μs, see
+  // https://microchipdeveloper.com/32arm:samd21-dac-overview
+  // Because there is no bit we can poll for knowing when the conversion has
+  // stabilized, we simply wait several clock cycles.
+  DAC->DATA.reg = value;
+  for (uint8_t i = 0; i < 144; i++) { // 144 cycles = 3.00 μs @ 48 MHz
+    __asm__("nop\n\t");
+  }
+}
+void DAC_set_output_nosync(int16_t value) {
+  DAC->DATA.reg = value;
+}
 //
 int16_t ADC_read_signal(int pin) {
   ADC->INPUTCTRL.bit.MUXPOS = pin; // Selection new conversion pin
@@ -168,14 +186,14 @@ void updatedac() {
   if (awgon) {
     if (n >= ns) n = 0;
     if (m >= ms) m = 0;
-    analogWrite(A0, awgouta[n]);
+    DAC_set_output_nosync(awgouta[n]); // analogWrite(A0, awgouta[n]);
     if (awgpwnon) {
       pwm(D10, pwmf, awgoutb[m]);
     }
     n++;
     m++;
   } else {
-    analogWrite(A0, 0);
+    DAC_set_output_nosync(0); // analogWrite(A0, 0);
     n = 0;
     m = 0;
     if (awgpwnon) {
@@ -267,7 +285,8 @@ void setup() {
   //
   //m0tweak::cpuFrequency(64);
   //m0tweak::adcPrecision(12);
-  analogWriteResolution(10);
+  //analogWriteResolution(10);
+  DAC_init();
   //analogReadResolution(12);
   ADC_init();
   //ADC->CTRLB.reg = ADC_CTRLB_PRESCALER_DIV32;
@@ -439,10 +458,10 @@ void setup() {
             while (ta>micros());
           }
           TotalReal=micros()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal); // report total time for bs samples
           // dump buffer over serial
           Serial.write(scopea, sizeof(scopea));
           Serial.write(digin, sizeof(digin));
@@ -473,10 +492,10 @@ void setup() {
             while (ta>micros());
           }
           TotalReal=micros()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           // Dump Buffer over serial
           Serial.write(scopea, sizeof(scopea));
           Serial.write(scopeb, sizeof(scopeb));
@@ -508,10 +527,10 @@ void setup() {
             while (ta>micros());
           }
           TotalReal=micros()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           // Dump Buffer over serial
           Serial.write(scopea, sizeof(scopea));
           Serial.write(scopec, sizeof(scopec));
@@ -544,10 +563,10 @@ void setup() {
             while (ta>micros());
           }
           TotalReal=micros()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           // Dump Buffer over serial
           Serial.write(scopeb, sizeof(scopeb));
           Serial.write(scopec, sizeof(scopec));
@@ -582,10 +601,10 @@ void setup() {
             while (ta>micros());
           }
           TotalReal=micros()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           // Dump Buffer over serial
           Serial.write(scopea, sizeof(scopea));
           Serial.write(scopeb, sizeof(scopeb));
@@ -614,10 +633,10 @@ void setup() {
             while (ta>micros());
           }
           TotalReal=micros()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           // Dump Buffer over serial
           Serial.write(scopeb, sizeof(scopeb));
           Serial.write(digin, sizeof(digin));
@@ -645,10 +664,10 @@ void setup() {
             while (ta>micros());
           }
           TotalReal=micros()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           // Dump Buffer over serial
           Serial.write(scopec, sizeof(scopec));
           Serial.write(digin, sizeof(digin));
@@ -676,10 +695,10 @@ void setup() {
             while (ta>micros());
           }
           TotalReal=micros()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           // Dump Buffer over serial
           Serial.write(scopea, sizeof(scopea));
           Serial.write(digin, sizeof(digin));
@@ -709,10 +728,10 @@ void setup() {
             while (ta>micros());
           }
           TotalReal=micros()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           // Dump Buffer over serial
           Serial.write(scopea, sizeof(scopea));
           Serial.write(scopeb, sizeof(scopeb));
@@ -746,10 +765,10 @@ void setup() {
             while (ta>micros());
           }
           TotalReal=micros()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           Serial.write(scopea, sizeof(scopea));
           Serial.write(scopeb, sizeof(scopeb));
           Serial.write(scopec, sizeof(scopec));

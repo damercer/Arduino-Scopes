@@ -1,4 +1,5 @@
 //Pico_Scope3 3 channel scope with AWG using MCP48x2 dual 8/10/12 bit SPI DAC 
+// 12/30/2023
 #include "pico/stdlib.h"
 #include "hardware/adc.h"
 #include "hardware/pwm.h"
@@ -307,10 +308,10 @@ void loop() {
             while (ta>time_us_32());
           }
           TotalReal=time_us_32()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(led, HIGH); // Toggel LED High while sending data
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
             Serial.write(scopeahi[k]);
             Serial.write(scopealow[k]);
@@ -342,10 +343,10 @@ void loop() {
             while (ta>time_us_32());
           }
           TotalReal=time_us_32()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(led, HIGH); // Toggel LED High while sending data
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
             Serial.write(scopeahi[k]);
             Serial.write(scopealow[k]);
@@ -379,10 +380,10 @@ void loop() {
             while (ta>time_us_32());
           }
           TotalReal=time_us_32()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(led, HIGH); // Toggel LED High while sending data
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
             Serial.write(scopeahi[k]);
             Serial.write(scopealow[k]);
@@ -416,10 +417,10 @@ void loop() {
             while (ta>time_us_32());
           }
           TotalReal=time_us_32()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(led, HIGH); // Toggel LED High while sending data
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
             Serial.write(scopebhi[k]);
             Serial.write(scopeblow[k]);
@@ -457,10 +458,10 @@ void loop() {
             while (ta>time_us_32());
           }
           TotalReal=time_us_32()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(led, HIGH); // Toggel LED High while sending data
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
             Serial.write(scopeahi[k]);
             Serial.write(scopealow[k]);
@@ -492,10 +493,10 @@ void loop() {
             while (ta>time_us_32());
           }
           TotalReal=time_us_32()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(led, HIGH); // Toggel LED High while sending data
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
             Serial.write(scopebhi[k]);
             Serial.write(scopeblow[k]);
@@ -523,10 +524,10 @@ void loop() {
             while (ta>time_us_32());
           }
           TotalReal=time_us_32()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(led, HIGH); // Toggel LED High while sending data
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
             Serial.write(scopechi[k]);
             Serial.write(scopeclow[k]);
