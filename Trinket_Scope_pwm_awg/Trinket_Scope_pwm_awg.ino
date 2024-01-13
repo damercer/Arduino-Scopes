@@ -1,4 +1,4 @@
-//Trinket M0 Scope3 1/2/3 channel scope 1 internal awg (12/29/2023)
+//Trinket M0 Scope3 1/2/3 channel scope 1 internal awg (1/13/2024)
 //
 //#include "arduino_m0_tweak.hpp"
 #include <Adafruit_ZeroTimer.h>
@@ -175,19 +175,20 @@ float nextVal (float curr, int min, int max) {
 void updatedac() {
   if (awgon) {
     if (n >= ns) n = 0;
-    if (m >= ms) m = 0;
     DAC->DATA.reg = awgouta[n]; // analogWrite(A0, awgouta[n]);
-    if (awgpwnon) {
-      analogWrite(A4, awgoutb[m]); // pwm(A10, pwmf, awgoutb[m]);
-    }
     n++;
-    m++;
+    if (awgpwnon) {
+      if (m >= ms) m = 0;
+      TCC1->CC[0].reg = awgoutb[m]; // Set Width Reg
+      // analogWrite(A4, awgoutb[m]);
+      m++;
+    }
   } else {
     DAC->DATA.reg = 0; // analogWrite(A0, 0);
     n = 0;
     m = 0;
     if (awgpwnon) {
-      analogWrite(A4, 0);
+      TCC1->CC[0].reg = 0; //analogWrite(A4, 0);
     }
   }
 }
@@ -439,9 +440,13 @@ void setup() {
           c2 = Serial.read();
           if(c2=='o'){
             awgpwnon = 1;
+            analogWrite(A4, 0);
+            TCC1->PER.reg = 512; // Set Frequency divider
           }else{
             awgpwnon = 0;
-            analogWrite(A4, 0); //pwm(A10, pwmf, 0);
+            TCC1->PER.reg = 512; // pwm(D10, 500, 0);
+            TCC1->CC[0].reg = 0;
+            // analogWrite(A4, 0); //pwm(A10, pwmf, 0);
           }
           break;
         case 's': // enable - disable PWM output awgpwnon

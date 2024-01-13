@@ -1,4 +1,4 @@
-//QT Py Scope3 1/2/3 channel scope 1 internal awg (12/29/2023)
+//QT Py Scope3 1/2/3 channel scope 1 internal awg (1/12/2024)
 //
 //#include "arduino_m0_tweak.hpp"
 #include <Adafruit_ZeroTimer.h>
@@ -139,6 +139,45 @@ int16_t ADC_read_signal(int pin) {
   while (!ADC->INTFLAG.bit.RESRDY) {} // Wait for result ready to be read
   return ADC->RESULT.reg;             // Read result
 }
+// Set up TCC0 channel 3 to output single slope PWM on PA06 Pin D8 at 500Hz
+void PWM_init() {
+  GCLK->GENDIV.reg = GCLK_GENDIV_DIV(1) |         // Divide the 48MHz clock source by divisor 1: 48MHz/1=48MHz
+                     GCLK_GENDIV_ID(4);           // Select Generic Clock (GCLK) 4  
+
+  GCLK->GENCTRL.reg = GCLK_GENCTRL_IDC |          // Set the duty cycle to 50/50 HIGH/LOW
+                      GCLK_GENCTRL_GENEN |        // Enable GCLK4
+                      GCLK_GENCTRL_SRC_DFLL48M |  // Set the 48MHz clock source
+                      GCLK_GENCTRL_ID(4);         // Select GCLK4
+  while (GCLK->STATUS.bit.SYNCBUSY);              // Wait for synchronization
+
+  GCLK->CLKCTRL.reg = GCLK_CLKCTRL_CLKEN |         // Route GCLK 4 to timers TCC0 and TCC1
+                      GCLK_CLKCTRL_GEN_GCLK4 |     
+                      GCLK_CLKCTRL_ID_TCC0_TCC1;
+
+  // Enable the port multiplexer for the TCC0 PWM channel 3 (digital pin SCL), SAMD21 pin PA21
+  PORT->Group[PORTA].PINCFG[17].bit.PMUXEN = 1;
+  
+  // Connect the TCC0 timer to the port outputs - port pins are paired odd PMUO and even PMUXE
+  // F & E specify the timers: TCC0, TCC1 and TCC2
+  PORT->Group[PORTA].PMUX[17 >> 1].reg |= /*PORT_PMUX_PMUXO_F |*/ PORT_PMUX_PMUXO_F;
+
+  TCC0->WAVE.reg = TCC_WAVE_WAVEGEN_NPWM;         // Set up single slope PWM on TCC0
+  while (TCC0->SYNCBUSY.bit.WAVE);                // Wait for synchronization
+
+  // Formula: PWM frequency = freq(GCLK) / (timer prescaler * (PER + 1)) 
+  // Therefore PWM frequency = 48MHz / (1 * (95999 + 1)) = 500Hz
+  TCC0->PER.reg = 95999;                          // Set the frequency of the PWM on TCC0 to 500Hz
+  while(TCC0->SYNCBUSY.bit.PER);                  // Wait for synchronization
+
+  TCC0->CC[3].reg = 0;                        // Set the duty-cycle to 0% 48000 = 50%
+  while(TCC0->SYNCBUSY.bit.CC3);                  // Wait for synchronization
+
+  //TCC0->CTRLA.reg = TCC_CTRLA_PRESCSYNC_PRESC |   // Set the TCC0 timer to overflow on the next prescaler clock (rather than GCLK)
+  //                  TCC_CTRLA_PRESCALER_DIV1;     // Divide the GLCK by the timer prescaler
+
+  TCC0->CTRLA.bit.ENABLE = 1;                     // Enable TCC0
+  while (TCC0->SYNCBUSY.bit.ENABLE);              // Wait for synchronization
+}
 //
 void multiplePinMode(const int *pins, const int numberOfPins, uint8_t mode) {
   for (uint8_t i  = 0; i < numberOfPins; i++) {
@@ -175,19 +214,21 @@ float nextVal (float curr, int min, int max) {
 void updatedac() {
   if (awgon) {
     if (n >= ns) n = 0;
-    if (m >= ms) m = 0;
     DAC->DATA.reg = awgouta[n]; // analogWrite(A0, awgouta[n]);
-    if (awgpwnon) {
-      analogWrite(A10, awgoutb[m]); // pwm(A10, pwmf, awgoutb[m]);
-    }
     n++;
-    m++;
+    if (awgpwnon) {
+      if (m >= ms) m = 0;
+      TCC0->CCB[3].reg = awgoutb[m];  // Set the duty-cycle
+      //analogWrite(A10, awgoutb[m]); // pwm(A10, pwmf, awgoutb[m]);
+      m++;
+    }
   } else {
     DAC->DATA.reg = 0; //analogWrite(A0, 0);
     n = 0;
     m = 0;
     if (awgpwnon) {
-      analogWrite(A10, 0);
+      TCC0->CCB[3].reg = 0;
+      //analogWrite(A10, 0);
     }
   }
 }
@@ -301,6 +342,7 @@ void setup() {
   analogWrite(A0, 0);
   //analogReadResolution(12);
   ADC_init();
+  PWM_init();
   //ADC->CTRLB.reg = ADC_CTRLB_PRESCALER_DIV32;
   //pinMode(A3, INPUT); 
   while (true) { 
@@ -439,26 +481,72 @@ void setup() {
           c2 = Serial.read();
           if(c2=='o'){
             awgpwnon = 1;
+            TCC0->CTRLBSET.reg = TCC_CTRLBSET_LUPD; // Set the Lock Update bit
+            while (TCC0->SYNCBUSY.bit.CTRLB);       // Wait for synchronization
+            TCC0->PERB.reg = 512;                  // Set the frequency of the PWM on TCC0
+            while(TCC0->SYNCBUSY.bit.PERB);         // Wait for synchronization
+            TCC0->CCB[3].reg = 0;                // Set the duty-cycle
+            while(TCC0->SYNCBUSY.bit.CCB3);         // Wait for synchronization
+            TCC0->CTRLBCLR.reg = TCC_CTRLBCLR_LUPD; // Clear the Lock Update bit
+            while (TCC0->SYNCBUSY.bit.CTRLB);       // Wait for synchronization
           }else{
             awgpwnon = 0;
-            analogWrite(A10, 0); //pwm(A10, pwmf, 0);
+            TCC0->CTRLBSET.reg = TCC_CTRLBSET_LUPD; // Set the Lock Update bit
+            while (TCC0->SYNCBUSY.bit.CTRLB);       // Wait for synchronization
+            TCC0->PERB.reg = 512;                  // Set the frequency of the PWM on TCC0
+            while(TCC0->SYNCBUSY.bit.PERB);         // Wait for synchronization
+            TCC0->CCB[3].reg = 0;                // Set the duty-cycle
+            while(TCC0->SYNCBUSY.bit.CCB3);         // Wait for synchronization
+            TCC0->CTRLBCLR.reg = TCC_CTRLBCLR_LUPD; // Clear the Lock Update bit
+            while (TCC0->SYNCBUSY.bit.CTRLB);       // Wait for synchronization
+            //analogWrite(8, 0); //pwm(A10, pwmf, 0);
           }
           break;
         case 's': // enable - disable PWM output awgpwnon
           c2 = Serial.read();
           if(c2=='o'){
-            analogWrite(A10, pwid); //pwm(A10, pwmf, pwid);
+            TCC0->CTRLBSET.reg = TCC_CTRLBSET_LUPD; // Set the Lock Update bit
+            while (TCC0->SYNCBUSY.bit.CTRLB);       // Wait for synchronization
+            TCC0->PERB.reg = pwmf;                  // Set the frequency of the PWM on TCC0
+            while(TCC0->SYNCBUSY.bit.PERB);         // Wait for synchronization
+            TCC0->CCB[3].reg = pwid;                // Set the duty-cycle
+            while(TCC0->SYNCBUSY.bit.CCB3);         // Wait for synchronization
+            TCC0->CTRLBCLR.reg = TCC_CTRLBCLR_LUPD; // Clear the Lock Update bit
+            while (TCC0->SYNCBUSY.bit.CTRLB);       // Wait for synchronization
+            //analogWrite(8, pwid); //pwm(A10, pwmf, pwid);
           }else{
-            analogWrite(A10, 0); //pwm(A10, pwmf, 0);
+            TCC0->CTRLBSET.reg = TCC_CTRLBSET_LUPD; // Set the Lock Update bit
+            while (TCC0->SYNCBUSY.bit.CTRLB);       // Wait for synchronization
+            //TCC0->PERB.reg = pwmf;                // Set the frequency of the PWM on TCC0
+            //while(TCC0->SYNCBUSY.bit.PERB);       // Wait for synchronization
+            TCC0->CCB[3].reg = 0;                   // Set the duty-cycle to 0%
+            while(TCC0->SYNCBUSY.bit.CCB3);         // Wait for synchronization
+            TCC0->CTRLBCLR.reg = TCC_CTRLBCLR_LUPD; // Clear the Lock Update bit
+            while (TCC0->SYNCBUSY.bit.CTRLB);       // Wait for synchronization
+            //analogWrite(8, 0); //pwm(A10, pwmf, 0);
           }
           break;
         case 'p': // change analog write pwm frequency value
           pwmf = Serial.parseInt();
-          analogWrite(A10, pwid); // pwm(A10, pwmf, pwid);
+          TCC0->CTRLBSET.reg = TCC_CTRLBSET_LUPD; // Set the Lock Update bit
+          while (TCC0->SYNCBUSY.bit.CTRLB);       // Wait for synchronization
+          TCC0->PERB.reg = pwmf;                  // Set the frequency of the PWM on TCC0
+          while(TCC0->SYNCBUSY.bit.PERB);         // Wait for synchronization
+          TCC0->CCB[3].reg = pwid;                // Set the duty-cycle
+          while(TCC0->SYNCBUSY.bit.CCB3);         // Wait for synchronization
+          TCC0->CTRLBCLR.reg = TCC_CTRLBCLR_LUPD; // Clear the Lock Update bit
+          while (TCC0->SYNCBUSY.bit.CTRLB);       // Wait for synchronization
           break;
         case 'm': // change pwm duty cycle % 
           pwid = Serial.parseInt(); // range from 0 (0%) to 1000 (100%)
-          analogWrite(A10, pwid); // pwm(A10, pwmf, pwid);
+          TCC0->CTRLBSET.reg = TCC_CTRLBSET_LUPD; // Set the Lock Update bit
+          while (TCC0->SYNCBUSY.bit.CTRLB);       // Wait for synchronization
+          TCC0->PERB.reg = pwmf;                  // Set the frequency of the PWM on TCC0
+          while(TCC0->SYNCBUSY.bit.PERB);         // Wait for synchronization
+          TCC0->CCB[3].reg = pwid;                // Set the duty-cycle 
+          while(TCC0->SYNCBUSY.bit.CCB3);         // Wait for synchronization
+          TCC0->CTRLBCLR.reg = TCC_CTRLBCLR_LUPD; // Clear the Lock Update bit
+          while (TCC0->SYNCBUSY.bit.CTRLB);       // Wait for synchronization
           break;
         case '0': // do scope ch a single capture
         // if sync is on reset start of awg buffer pointer

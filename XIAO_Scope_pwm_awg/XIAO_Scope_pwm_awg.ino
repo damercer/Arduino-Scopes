@@ -1,4 +1,4 @@
-//XIAO Scope2 1/2/3 channel scope 1 internal awg (12/29/2023)
+//XIAO Scope2 1/2/3 channel scope 1 internal awg (1/13/2024)
 //
 #include <TimerTC3.h>
 
@@ -120,24 +120,6 @@ void ADC_init() {
   ADC->CTRLA.bit.ENABLE = 1;
   syncADC();
 }
-void DAC_init() {
-  // Simply rely on the built-in Arduino functions for initialization.
-  analogWriteResolution(10);
-  analogWrite(A0, 0);
-}
-void DAC_set_output(int16_t value) {
-  // DAC conversion time is approximately 2.85 μs, see
-  // https://microchipdeveloper.com/32arm:samd21-dac-overview
-  // Because there is no bit we can poll for knowing when the conversion has
-  // stabilized, we simply wait several clock cycles.
-  DAC->DATA.reg = value;
-  for (uint8_t i = 0; i < 144; i++) { // 144 cycles = 3.00 μs @ 48 MHz
-    __asm__("nop\n\t");
-  }
-}
-void DAC_set_output_nosync(int16_t value) {
-  DAC->DATA.reg = value;
-}
 //
 int16_t ADC_read_signal(int pin) {
   ADC->INPUTCTRL.bit.MUXPOS = pin; // Selection new conversion pin
@@ -185,19 +167,20 @@ float nextVal (float curr, int min, int max) {
 void updatedac() {
   if (awgon) {
     if (n >= ns) n = 0;
-    if (m >= ms) m = 0;
-    DAC_set_output_nosync(awgouta[n]); // analogWrite(A0, awgouta[n]);
-    if (awgpwnon) {
-      pwm(D10, pwmf, awgoutb[m]);
-    }
+    DAC->DATA.reg = awgouta[n]; // analogWrite(A0, awgouta[n]);
     n++;
-    m++;
+    if (awgpwnon) {
+      if (m >= ms) m = 0;
+      TCC1->CC[0].reg = awgoutb[m]; // Set Width Reg
+      //pwm(D10, pwmf, awgoutb[m]);
+      m++;
+    }
   } else {
-    DAC_set_output_nosync(0); // analogWrite(A0, 0);
+    DAC->DATA.reg = 0; // analogWrite(A0, 0);
     n = 0;
     m = 0;
     if (awgpwnon) {
-      pwm(D10, pwmf, 0);
+      TCC1->CC[0].reg = 0; // pwm(D10, pwmf, 0);
     }
   }
 }
@@ -285,8 +268,8 @@ void setup() {
   //
   //m0tweak::cpuFrequency(64);
   //m0tweak::adcPrecision(12);
-  //analogWriteResolution(10);
-  DAC_init();
+  analogWriteResolution(10);
+  analogWrite(A0, 0); // DAC_init();
   //analogReadResolution(12);
   ADC_init();
   //ADC->CTRLB.reg = ADC_CTRLB_PRESCALER_DIV32;
@@ -418,9 +401,12 @@ void setup() {
           c2 = Serial.read();
           if(c2=='o'){
             awgpwnon = 1;
+            TCC1->PER.reg = 512; // Set Frequency divider
+            // pwm(D10, 96000, 500);
           }else{
             awgpwnon = 0;
-            pwm(D10, pwmf, 0);
+            TCC1->PER.reg = 512; // pwm(D10, 500, 0);
+            TCC1->CC[0].reg = 0;
           }
           break;
         case 's': // enable - disable PWM output awgpwnon

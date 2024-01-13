@@ -11,6 +11,8 @@ Currently available hardware interfaces (some are works in progress):
   + Adafruit ItsyBitsy M4 Express (ATSAMD51)
   + Raspberry Pi Pico RP-2040
     - With external R/2R DAC or SPI DAC or PWM analog AWG output
+  + SparkFun SAMD21 Mini Breakout (DEV-13664)
+  + SparkFun Thing Plus - SAMD51 (DEV-14713)
   + Seeed Studio XIAO SAMD21
   + Seeed Studio XIAO RP-2040
     - With external SPI DAC or PWM analog AWG output
