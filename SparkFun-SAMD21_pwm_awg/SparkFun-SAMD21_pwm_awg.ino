@@ -1,4 +1,4 @@
-//SparkFun SAMD21 Mini Scope3 1/2/3 channel scope 1 internal awg (1/11/2024)
+//SparkFun SAMD21 Mini Scope3 1/2/3 channel scope 1 internal awg (1/18/2024)
 //
 //#include "arduino_m0_tweak.hpp"
 #include "sam.h"
@@ -23,12 +23,15 @@ const int RX_LED = PIN_LED_RXL;
 // RX LED on pin 25, we use the predefined PIN_LED_RXL to make sure
 const int TX_LED = PIN_LED_TXL; 
 // TX LED on pin 26, we use the predefined PIN_LED_TXL to make sure
-uint8_t scopea[2048];
-uint8_t scopeb[2048];
-uint8_t scopec[2048]; 
-uint8_t digin[1024];
-unsigned int awgouta[2048];
-unsigned int awgoutb[2048];
+uint8_t scopeah[2048];
+uint8_t scopeal[2048];
+uint8_t scopebh[2048];
+uint8_t scopebl[2048];
+uint8_t scopech[2048];
+uint8_t scopecl[2048];
+uint8_t digin[2048];
+short awgouta[2048];
+short awgoutb[2048];
 int wavea;
 int cyclea;
 int ampla;
@@ -45,6 +48,7 @@ float Step;
 unsigned int at, at2, st, st2, stReal;
 int bmax=2048;
 int bs=1024;
+int tbs=2048;
 int ns=1024;
 int ms=1024;
 int pwmf = 500;
@@ -446,6 +450,7 @@ void setup() {
           if(bs>bmax){
             bs=bmax;
           }
+          tbs = bs * 2;
           break;
         case 'W': // change waveform shape ch a
           wavea = SerialUSB.parseInt();
@@ -575,8 +580,8 @@ void setup() {
           StartReal = ta;
           for (int n = 0; n < bs; n++){ // Fill Buffer
             measa = ADC_read_signal(Ain1); // analogRead(A1);
-            scopea[n] = (measa & 0xFF00) >> 8;
-            scopea[n+bs] = measa & 0xFF;
+            scopeah[n] = (measa & 0xFF00) >> 8;
+            scopeal[n] = measa & 0xFF;
             digmeas = 0; // digitalRead(A6);
             digin[n]= digmeas & 0x3F;
             ta+=st;
@@ -588,8 +593,9 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal); // report total time for bs samples
           // dump buffer over serial
-          SerialUSB.write(scopea, sizeof(scopea));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopeah, bs);
+          SerialUSB.write(scopeal, bs);
+          SerialUSB.write(digin, bs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -608,10 +614,10 @@ void setup() {
             measa = ADC_read_signal(Ain1); // analogRead(A1);
             measb = ADC_read_signal(Ain2); // analogRead(A2);
             digmeas = 0; // digitalRead(A6);
-            scopea[n] = (measa & 0xFF00) >> 8;
-            scopea[n+bs] = measa & 0xFF;
-            scopeb[n] = (measb & 0xFF00) >> 8;
-            scopeb[n+bs] = measb & 0xFF;
+            scopeah[n] = (measa & 0xFF00) >> 8;
+            scopeal[n] = measa & 0xFF;
+            scopebh[n] = (measb & 0xFF00) >> 8;
+            scopebl[n] = measb & 0xFF;
             digin[n]= digmeas & 0x3F;
             ta+=st;
             while (ta>micros());
@@ -622,9 +628,11 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopea, sizeof(scopea));
-          SerialUSB.write(scopeb, sizeof(scopeb));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopeah, bs);
+          SerialUSB.write(scopeal, bs);
+          SerialUSB.write(scopebh, bs);
+          SerialUSB.write(scopebl, bs);
+          SerialUSB.write(digin, bs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -643,10 +651,10 @@ void setup() {
             measa = ADC_read_signal(Ain1); // analogRead(A1);
             measc = ADC_read_signal(Ain3); // analogRead(A3);
             digmeas = 0; // digitalRead(A6);
-            scopea[n] = (measa & 0xFF00) >> 8;
-            scopea[n+bs] = measa & 0xFF;
-            scopec[n] = (measc & 0xFF00) >> 8;
-            scopec[n+bs] = measc & 0xFF;
+            scopeah[n] = (measa & 0xFF00) >> 8;
+            scopeal[n] = measa & 0xFF;
+            scopech[n] = (measc & 0xFF00) >> 8;
+            scopecl[n] = measc & 0xFF;
             digin[n]= digmeas & 0x3F;
             ta+=st;
             while (ta>micros());
@@ -657,9 +665,11 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopea, sizeof(scopea));
-          SerialUSB.write(scopec, sizeof(scopec));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopeah, bs);
+          SerialUSB.write(scopeal, bs);
+          SerialUSB.write(scopech, bs);
+          SerialUSB.write(scopecl, bs);
+          SerialUSB.write(digin, bs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -679,10 +689,10 @@ void setup() {
             measb = ADC_read_signal(Ain2); // analogRead(A2);
             measc = ADC_read_signal(Ain3); // analogRead(A3);
             digmeas = 0; // digitalRead(A6);
-            scopeb[n] = (measb & 0xFF00) >> 8;
-            scopeb[n+bs] = measb & 0xFF;
-            scopec[n] = (measc & 0xFF00) >> 8;
-            scopec[n+bs] = measc & 0xFF;
+            scopebh[n] = (measb & 0xFF00) >> 8;
+            scopebl[n] = measb & 0xFF;
+            scopech[n] = (measc & 0xFF00) >> 8;
+            scopecl[n] = measc & 0xFF;
             digin[n]= digmeas & 0x3F;
             ta+=st;
             while (ta>micros());
@@ -693,9 +703,11 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopeb, sizeof(scopeb));
-          SerialUSB.write(scopec, sizeof(scopec));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopebh, bs);
+          SerialUSB.write(scopebl, bs);
+          SerialUSB.write(scopech, bs);
+          SerialUSB.write(scopecl, bs);
+          SerialUSB.write(digin, bs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -715,12 +727,12 @@ void setup() {
             measb = ADC_read_signal(Ain2); // analogRead(A2);
             measc = ADC_read_signal(Ain3); // analogRead(A3);
             digmeas = 0; // digitalRead(A6);
-            scopea[n] = (measa & 0xFF00) >> 8;
-            scopea[n+bs] = measa & 0xFF;
-            scopeb[n] = (measb & 0xFF00) >> 8;
-            scopeb[n+bs] = measb & 0xFF;
-            scopec[n] = (measc & 0xFF00) >> 8;
-            scopec[n+bs] = measc & 0xFF;
+            scopeah[n] = (measa & 0xFF00) >> 8;
+            scopeal[n] = measa & 0xFF;
+            scopebh[n] = (measb & 0xFF00) >> 8;
+            scopebl[n] = measb & 0xFF;
+            scopech[n] = (measc & 0xFF00) >> 8;
+            scopecl[n] = measc & 0xFF;
             digin[n]= digmeas & 0x3F;
             ta+=st;
             while (ta>micros());
@@ -731,10 +743,13 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopea, sizeof(scopea));
-          SerialUSB.write(scopeb, sizeof(scopeb));
-          SerialUSB.write(scopec, sizeof(scopec));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopeah, bs);
+          SerialUSB.write(scopeal, bs);
+          SerialUSB.write(scopebh, bs);
+          SerialUSB.write(scopebl, bs);
+          SerialUSB.write(scopech, bs);
+          SerialUSB.write(scopecl, bs);
+          SerialUSB.write(digin, bs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -750,8 +765,8 @@ void setup() {
           StartReal = ta;
           for (int n = 0; n < bs; n++){ // Fill Buffer
             measb = ADC_read_signal(Ain2); // analogRead(A2);
-            scopeb[n] = (measb & 0xFF00) >> 8;
-            scopeb[n+bs] = measb & 0xFF;
+            scopebh[n] = (measb & 0xFF00) >> 8;
+            scopebl[n] = measb & 0xFF;
             digmeas = 0; // digitalRead(A6);
             digin[n]= digmeas & 0x3F;
             ta+=st;
@@ -763,8 +778,9 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopeb, sizeof(scopeb));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopebh, bs);
+          SerialUSB.write(scopebl, bs);
+          SerialUSB.write(digin, bs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -781,8 +797,8 @@ void setup() {
           StartReal = ta;
           for (int n = 0; n < bs; n++){ // Fill Buffer
             measc = ADC_read_signal(Ain3); // analogRead(A3);
-            scopec[n] = (measc & 0xFF00) >> 8;
-            scopec[n+bs] = measc & 0xFF;
+            scopech[n] = (measc & 0xFF00) >> 8;
+            scopecl[n] = measc & 0xFF;
             digmeas = 0; // digitalRead(A6);
             digin[n]= digmeas & 0x3F;
             ta+=st;
@@ -794,8 +810,9 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopec, sizeof(scopec));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopech, bs);
+          SerialUSB.write(scopecl, bs);
+          SerialUSB.write(digin, bs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -812,8 +829,8 @@ void setup() {
           StartReal = ta;
           for (int n = 0; n < bs; n++){ // Fill Buffer
             measa = ADC_read_signal(Ain1); // analogRead(A1);
-            scopea[n] = (measa & 0xFF00) >> 8;
-            scopea[n+bs] = measa & 0xFF;
+            scopeah[n] = (measa & 0xFF00) >> 8;
+            scopeal[n] = measa & 0xFF;
             digmeas = multipleDigitalRead(inputPins, numberOfInputPins); // returns corresponding decimal number reading fom input pins
             digin[n]= digmeas & 0x3F;
             ta+=st;
@@ -825,8 +842,9 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopea, sizeof(scopea));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopeah, bs);
+          SerialUSB.write(scopeal, bs);
+          SerialUSB.write(digin, bs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -842,11 +860,11 @@ void setup() {
           StartReal = ta;
           for (int n = 0; n < bs; n++){ // Fill Buffer
             measa = ADC_read_signal(Ain1); // analogRead(A1);
-            scopea[n] = (measa & 0xFF00) >> 8;
-            scopea[n+bs] = measa & 0xFF;
+            scopeah[n] = (measa & 0xFF00) >> 8;
+            scopeal[n] = measa & 0xFF;
             measb = ADC_read_signal(Ain2); // analogRead(A2);
-            scopeb[n] = (measb & 0xFF00) >> 8;
-            scopeb[n+bs] = measb & 0xFF;
+            scopebh[n] = (measb & 0xFF00) >> 8;
+            scopebl[n] = measb & 0xFF;
             digmeas = multipleDigitalRead(inputPins, numberOfInputPins); // returns corresponding decimal number reading fom input pins
             digin[n]= digmeas & 0x3F;
             ta+=st;
@@ -858,9 +876,11 @@ void setup() {
           SerialUSB.print("stReal= ");
           Serial.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopea, sizeof(scopea));
-          SerialUSB.write(scopeb, sizeof(scopeb));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopeah, bs);
+          SerialUSB.write(scopeal, bs);
+          SerialUSB.write(scopebh, bs);
+          SerialUSB.write(scopebl, bs);
+          SerialUSB.write(digin, bs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -876,14 +896,14 @@ void setup() {
           StartReal = ta;
           for (int n = 0; n < bs; n++){ // Fill Buffer
             measa = ADC_read_signal(Ain1); // analogRead(A1);
-            scopea[n] = (measa & 0xFF00) >> 8;
-            scopea[n+bs] = measa & 0xFF;
+            scopeah[n] = (measa & 0xFF00) >> 8;
+            scopeal[n] = measa & 0xFF;
             measb = ADC_read_signal(Ain2); // analogRead(A2);
-            scopeb[n] = (measb & 0xFF00) >> 8;
-            scopeb[n+bs] = measb & 0xFF;
+            scopebh[n] = (measb & 0xFF00) >> 8;
+            scopebl[n] = measb & 0xFF;
             measc = ADC_read_signal(Ain3); // analogRead(A3);
-            scopec[n] = (measc & 0xFF00) >> 8;
-            scopec[n+bs] = measc & 0xFF;
+            scopech[n] = (measc & 0xFF00) >> 8;
+            scopecl[n] = measc & 0xFF;
             digmeas = multipleDigitalRead(inputPins, numberOfInputPins); // returns corresponding decimal number reading fom input pins
             digin[n]= digmeas & 0x3F;
             ta+=st;
@@ -894,10 +914,13 @@ void setup() {
           digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
-          SerialUSB.write(scopea, sizeof(scopea));
-          SerialUSB.write(scopeb, sizeof(scopeb));
-          SerialUSB.write(scopec, sizeof(scopec));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopeah, bs);
+          SerialUSB.write(scopeal, bs);
+          SerialUSB.write(scopebh, bs);
+          SerialUSB.write(scopebl, bs);
+          SerialUSB.write(scopech, bs);
+          SerialUSB.write(scopecl, bs);
+          SerialUSB.write(digin, bs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)

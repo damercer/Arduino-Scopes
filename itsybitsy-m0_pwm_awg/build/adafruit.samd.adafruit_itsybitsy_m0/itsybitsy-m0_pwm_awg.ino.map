@@ -1616,7 +1616,7 @@ END GROUP
 LOAD c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtend.o
 LOAD c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
 
-.text           0x00002000     0x9884
+.text           0x00002000     0x988c
                 0x00002000                __text_start__ = .
  *(.sketch_boot)
                 0x00002000                . = ALIGN (0x2000)
@@ -1641,536 +1641,536 @@ LOAD c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eab
                 0x00002320       0x50 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
                 0x00002320                multiplePinMode(int const*, int, unsigned char)
  .text._Z9makewaveav
-                0x00002370      0x2b8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x00002370      0x290 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
                 0x00002370                makewavea()
- .text.loop     0x00002628        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x00002628                loop
+ .text.loop     0x00002600        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x00002600                loop
  .text.startup._GLOBAL__sub_I_pixels
-                0x0000262c       0x34 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
- .text.setup    0x00002660     0x1010 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x00002660                setup
+                0x00002604       0x34 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+ .text.setup    0x00002638     0x1040 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x00002638                setup
  .text._ZN18Adafruit_ZeroTimerC2Eh
-                0x00003670        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
-                0x00003670                Adafruit_ZeroTimer::Adafruit_ZeroTimer(unsigned char)
-                0x00003670                Adafruit_ZeroTimer::Adafruit_ZeroTimer(unsigned char)
+                0x00003678        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
+                0x00003678                Adafruit_ZeroTimer::Adafruit_ZeroTimer(unsigned char)
+                0x00003678                Adafruit_ZeroTimer::Adafruit_ZeroTimer(unsigned char)
  .text._ZN18Adafruit_ZeroTimer7tc_initEv
-                0x00003674      0x234 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
-                0x00003674                Adafruit_ZeroTimer::tc_init()
+                0x0000367c      0x234 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
+                0x0000367c                Adafruit_ZeroTimer::tc_init()
  .text._ZN18Adafruit_ZeroTimer9configureE18tc_clock_prescaler15tc_counter_size18tc_wave_generation18tc_count_direction
-                0x000038a8       0x74 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
-                0x000038a8                Adafruit_ZeroTimer::configure(tc_clock_prescaler, tc_counter_size, tc_wave_generation, tc_count_direction)
+                0x000038b0       0x74 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
+                0x000038b0                Adafruit_ZeroTimer::configure(tc_clock_prescaler, tc_counter_size, tc_wave_generation, tc_count_direction)
  .text._ZN18Adafruit_ZeroTimer11setCallbackEb11tc_callbackPFvvE
-                0x0000391c      0x148 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
-                0x0000391c                Adafruit_ZeroTimer::setCallback(bool, tc_callback, void (*)())
+                0x00003924      0x148 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
+                0x00003924                Adafruit_ZeroTimer::setCallback(bool, tc_callback, void (*)())
  .text._ZN18Adafruit_ZeroTimer10setCompareEhm
-                0x00003a64       0x60 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
-                0x00003a64                Adafruit_ZeroTimer::setCompare(unsigned char, unsigned long)
+                0x00003a6c       0x60 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
+                0x00003a6c                Adafruit_ZeroTimer::setCompare(unsigned char, unsigned long)
  .text._ZN18Adafruit_ZeroTimer6enableEb
-                0x00003ac4       0x48 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
-                0x00003ac4                Adafruit_ZeroTimer::enable(bool)
+                0x00003acc       0x48 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
+                0x00003acc                Adafruit_ZeroTimer::enable(bool)
  .text._ZN18Adafruit_ZeroTimer12timerHandlerEh
-                0x00003b0c      0x130 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
-                0x00003b0c                Adafruit_ZeroTimer::timerHandler(unsigned char)
+                0x00003b14      0x130 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
+                0x00003b14                Adafruit_ZeroTimer::timerHandler(unsigned char)
  .text._ZN17Adafruit_NeoPixelC2Etst
-                0x00003c3c       0x64 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
-                0x00003c3c                Adafruit_NeoPixel::Adafruit_NeoPixel(unsigned short, short, unsigned short)
-                0x00003c3c                Adafruit_NeoPixel::Adafruit_NeoPixel(unsigned short, short, unsigned short)
+                0x00003c44       0x64 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
+                0x00003c44                Adafruit_NeoPixel::Adafruit_NeoPixel(unsigned short, short, unsigned short)
+                0x00003c44                Adafruit_NeoPixel::Adafruit_NeoPixel(unsigned short, short, unsigned short)
  .text._ZN17Adafruit_NeoPixelD2Ev
-                0x00003ca0       0x1c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
-                0x00003ca0                Adafruit_NeoPixel::~Adafruit_NeoPixel()
-                0x00003ca0                Adafruit_NeoPixel::~Adafruit_NeoPixel()
+                0x00003ca8       0x1c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
+                0x00003ca8                Adafruit_NeoPixel::~Adafruit_NeoPixel()
+                0x00003ca8                Adafruit_NeoPixel::~Adafruit_NeoPixel()
  .text._ZN17Adafruit_NeoPixel5beginEv
-                0x00003cbc       0x24 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
-                0x00003cbc                Adafruit_NeoPixel::begin()
+                0x00003cc4       0x24 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
+                0x00003cc4                Adafruit_NeoPixel::begin()
  .text._ZN17Adafruit_NeoPixel4showEv
-                0x00003ce0      0x208 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
-                0x00003ce0                Adafruit_NeoPixel::show()
+                0x00003ce8      0x208 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
+                0x00003ce8                Adafruit_NeoPixel::show()
  .text._ZN17Adafruit_NeoPixel13setPixelColorEtm
-                0x00003ee8       0x88 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
-                0x00003ee8                Adafruit_NeoPixel::setPixelColor(unsigned short, unsigned long)
+                0x00003ef0       0x88 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
+                0x00003ef0                Adafruit_NeoPixel::setPixelColor(unsigned short, unsigned long)
  .text._ZN17Adafruit_NeoPixel5clearEv
-                0x00003f70       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
-                0x00003f70                Adafruit_NeoPixel::clear()
+                0x00003f78       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
+                0x00003f78                Adafruit_NeoPixel::clear()
  .text.SERCOM0_Handler
-                0x00003f80       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
-                0x00003f80                SERCOM0_Handler
+                0x00003f88       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+                0x00003f88                SERCOM0_Handler
  .text.startup._GLOBAL__sub_I_g_APinDescription
-                0x00003f90       0x84 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+                0x00003f98       0x84 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
  .text._ZN5Print5writeEPKhj
-                0x00004014       0x28 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
-                0x00004014                Print::write(unsigned char const*, unsigned int)
+                0x0000401c       0x28 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
+                0x0000401c                Print::write(unsigned char const*, unsigned int)
  .text._ZN5Print5printEPKc
-                0x0000403c       0x58 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
-                0x0000403c                Print::print(char const*)
+                0x00004044       0x58 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
+                0x00004044                Print::print(char const*)
  .text._ZN5Print7printlnEPKc
-                0x00004094       0xa0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
-                0x00004094                Print::println(char const*)
+                0x0000409c       0xa0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
+                0x0000409c                Print::println(char const*)
  .text._ZN5Print11printNumberEmh
-                0x00004134       0x9c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
-                0x00004134                Print::printNumber(unsigned long, unsigned char)
+                0x0000413c       0x9c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
+                0x0000413c                Print::printNumber(unsigned long, unsigned char)
  .text._ZN5Print7printlnEmi
-                0x000041d0       0x64 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
-                0x000041d0                Print::println(unsigned long, int)
+                0x000041d8       0x64 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
+                0x000041d8                Print::println(unsigned long, int)
  .text._ZN6SERCOMC2EP6Sercom
-                0x00004234        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x00004234                SERCOM::SERCOM(Sercom*)
-                0x00004234                SERCOM::SERCOM(Sercom*)
+                0x0000423c        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x0000423c                SERCOM::SERCOM(Sercom*)
+                0x0000423c                SERCOM::SERCOM(Sercom*)
  .text._ZN6SERCOM9initFrameE18SercomUartCharSize15SercomDataOrder16SercomParityMode19SercomNumberStopBit
-                0x00004238       0x40 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x00004238                SERCOM::initFrame(SercomUartCharSize, SercomDataOrder, SercomParityMode, SercomNumberStopBit)
+                0x00004240       0x40 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x00004240                SERCOM::initFrame(SercomUartCharSize, SercomDataOrder, SercomParityMode, SercomNumberStopBit)
  .text._ZN6SERCOM8initPadsE15SercomUartTXPad11SercomRXPad
-                0x00004278       0x28 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x00004278                SERCOM::initPads(SercomUartTXPad, SercomRXPad)
+                0x00004280       0x28 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x00004280                SERCOM::initPads(SercomUartTXPad, SercomRXPad)
  .text._ZN6SERCOM9resetUARTEv
-                0x000042a0       0x1c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x000042a0                SERCOM::resetUART()
+                0x000042a8       0x1c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x000042a8                SERCOM::resetUART()
  .text._ZN6SERCOM10enableUARTEv
-                0x000042bc       0x14 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x000042bc                SERCOM::enableUART()
+                0x000042c4       0x14 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x000042c4                SERCOM::enableUART()
  .text._ZN6SERCOM9flushUARTEv
-                0x000042d0       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x000042d0                SERCOM::flushUART()
+                0x000042d8       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x000042d8                SERCOM::flushUART()
  .text._ZN6SERCOM15clearStatusUARTEv
-                0x000042e0        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x000042e0                SERCOM::clearStatusUART()
+                0x000042e8        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x000042e8                SERCOM::clearStatusUART()
  .text._ZN6SERCOM17availableDataUARTEv
-                0x000042e8        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x000042e8                SERCOM::availableDataUART()
+                0x000042f0        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x000042f0                SERCOM::availableDataUART()
  .text._ZN6SERCOM11isUARTErrorEv
-                0x000042f4        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x000042f4                SERCOM::isUARTError()
+                0x000042fc        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x000042fc                SERCOM::isUARTError()
  .text._ZN6SERCOM20acknowledgeUARTErrorEv
-                0x000042fc       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x000042fc                SERCOM::acknowledgeUARTError()
+                0x00004304       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x00004304                SERCOM::acknowledgeUARTError()
  .text._ZN6SERCOM16isFrameErrorUARTEv
-                0x0000430c        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x0000430c                SERCOM::isFrameErrorUART()
+                0x00004314        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x00004314                SERCOM::isFrameErrorUART()
  .text._ZN6SERCOM19clearFrameErrorUARTEv
-                0x00004318        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x00004318                SERCOM::clearFrameErrorUART()
+                0x00004320        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x00004320                SERCOM::clearFrameErrorUART()
  .text._ZN6SERCOM23isDataRegisterEmptyUARTEv
-                0x00004324        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x00004324                SERCOM::isDataRegisterEmptyUART()
+                0x0000432c        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x0000432c                SERCOM::isDataRegisterEmptyUART()
  .text._ZN6SERCOM12readDataUARTEv
-                0x00004330        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x00004330                SERCOM::readDataUART()
+                0x00004338        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x00004338                SERCOM::readDataUART()
  .text._ZN6SERCOM13writeDataUARTEh
-                0x00004338       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x00004338                SERCOM::writeDataUART(unsigned char)
+                0x00004340       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x00004340                SERCOM::writeDataUART(unsigned char)
  .text._ZN6SERCOM36enableDataRegisterEmptyInterruptUARTEv
-                0x00004348        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x00004348                SERCOM::enableDataRegisterEmptyInterruptUART()
- .text._ZN6SERCOM37disableDataRegisterEmptyInterruptUARTEv
                 0x00004350        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x00004350                SERCOM::disableDataRegisterEmptyInterruptUART()
+                0x00004350                SERCOM::enableDataRegisterEmptyInterruptUART()
+ .text._ZN6SERCOM37disableDataRegisterEmptyInterruptUARTEv
+                0x00004358        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x00004358                SERCOM::disableDataRegisterEmptyInterruptUART()
  .text._ZN6SERCOM13initClockNVICEv
-                0x00004358       0xf4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x00004358                SERCOM::initClockNVIC()
+                0x00004360       0xf4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x00004360                SERCOM::initClockNVIC()
  .text._ZN6SERCOM8initUARTE14SercomUartMode20SercomUartSampleRatem
-                0x0000444c       0x94 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
-                0x0000444c                SERCOM::initUART(SercomUartMode, SercomUartSampleRate, unsigned long)
+                0x00004454       0x94 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x00004454                SERCOM::initUART(SercomUartMode, SercomUartSampleRate, unsigned long)
  .text._ZN6Stream13peekNextDigitE13LookaheadModeb
-                0x000044e0       0x7c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Stream.cpp.o)
-                0x000044e0                Stream::peekNextDigit(LookaheadMode, bool)
+                0x000044e8       0x7c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Stream.cpp.o)
+                0x000044e8                Stream::peekNextDigit(LookaheadMode, bool)
  .text._ZN6Stream8parseIntE13LookaheadModec
-                0x0000455c       0x78 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Stream.cpp.o)
-                0x0000455c                Stream::parseInt(LookaheadMode, char)
+                0x00004564       0x78 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Stream.cpp.o)
+                0x00004564                Stream::parseInt(LookaheadMode, char)
  .text._ZN7Serial_17availableForWriteEv
-                0x000045d4        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
-                0x000045d4                Serial_::availableForWrite()
+                0x000045dc        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x000045dc                Serial_::availableForWrite()
  .text._ZN7Serial_9availableEv
-                0x000045d8        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
-                0x000045d8                Serial_::available()
+                0x000045e0        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x000045e0                Serial_::available()
  .text._ZN7Serial_5flushEv
-                0x000045e4        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
-                0x000045e4                Serial_::flush()
+                0x000045ec        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x000045ec                Serial_::flush()
  .text._ZN7Serial_5writeEPKhj
-                0x000045f0       0x2c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
-                0x000045f0                Serial_::write(unsigned char const*, unsigned int)
+                0x000045f8       0x2c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x000045f8                Serial_::write(unsigned char const*, unsigned int)
  .text._ZN7Serial_4readEv
-                0x0000461c       0x24 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
-                0x0000461c                Serial_::read()
+                0x00004624       0x24 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x00004624                Serial_::read()
  .text._ZN7Serial_4peekEv
-                0x00004640       0x34 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
-                0x00004640                Serial_::peek()
+                0x00004648       0x34 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x00004648                Serial_::peek()
  .text._ZN7Serial_5writeEh
-                0x00004674       0x4c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
-                0x00004674                Serial_::write(unsigned char)
+                0x0000467c       0x4c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x0000467c                Serial_::write(unsigned char)
  .text._Z16CDC_GetInterfacePh
-                0x000046c0       0x1c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
-                0x000046c0                CDC_GetInterface(unsigned char*)
+                0x000046c8       0x1c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x000046c8                CDC_GetInterface(unsigned char*)
  .text._Z9CDC_SetupR8USBSetup
-                0x000046dc       0x7c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
-                0x000046dc                CDC_Setup(USBSetup&)
+                0x000046e4       0x7c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x000046e4                CDC_Setup(USBSetup&)
  .text._ZN7Serial_5beginEm
-                0x00004758        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
-                0x00004758                Serial_::begin(unsigned long)
+                0x00004760        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x00004760                Serial_::begin(unsigned long)
  .text.startup._GLOBAL__sub_I__Z17_CDC_GetInterfacev
-                0x0000475c       0x28 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x00004764       0x28 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
  .text._ZN26DoubleBufferedEPOutHandler4initEv
-                0x00004784        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x00004784                DoubleBufferedEPOutHandler::init()
+                0x0000478c        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x0000478c                DoubleBufferedEPOutHandler::init()
  .text._ZN26DoubleBufferedEPOutHandler4recvEPvm
-                0x00004788      0x154 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x00004788                DoubleBufferedEPOutHandler::recv(void*, unsigned long)
+                0x00004790      0x154 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00004790                DoubleBufferedEPOutHandler::recv(void*, unsigned long)
  .text._ZN26DoubleBufferedEPOutHandlerD2Ev
-                0x000048dc       0x14 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x000048dc                DoubleBufferedEPOutHandler::~DoubleBufferedEPOutHandler()
-                0x000048dc                DoubleBufferedEPOutHandler::~DoubleBufferedEPOutHandler()
+                0x000048e4       0x14 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x000048e4                DoubleBufferedEPOutHandler::~DoubleBufferedEPOutHandler()
+                0x000048e4                DoubleBufferedEPOutHandler::~DoubleBufferedEPOutHandler()
  .text._ZN26DoubleBufferedEPOutHandlerD0Ev
-                0x000048f0       0x1c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x000048f0                DoubleBufferedEPOutHandler::~DoubleBufferedEPOutHandler()
+                0x000048f8       0x1c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x000048f8                DoubleBufferedEPOutHandler::~DoubleBufferedEPOutHandler()
  .text._ZNK26DoubleBufferedEPOutHandler9availableEv
-                0x0000490c       0x50 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x0000490c                DoubleBufferedEPOutHandler::available() const
+                0x00004914       0x50 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00004914                DoubleBufferedEPOutHandler::available() const
  .text._ZN26DoubleBufferedEPOutHandler14handleEndpointEv
-                0x0000495c       0xe4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x0000495c                DoubleBufferedEPOutHandler::handleEndpoint()
+                0x00004964       0xe4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00004964                DoubleBufferedEPOutHandler::handleEndpoint()
  .text._ZN14USBDeviceClass20sendStringDescriptorEPKhh
-                0x00004a40      0x118 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x00004a40                USBDeviceClass::sendStringDescriptor(unsigned char const*, unsigned char)
+                0x00004a48      0x118 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00004a48                USBDeviceClass::sendStringDescriptor(unsigned char const*, unsigned char)
  .text._ZN14USBDeviceClass17sendConfigurationEm
-                0x00004b58      0x158 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x00004b58                USBDeviceClass::sendConfiguration(unsigned long)
+                0x00004b60      0x158 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00004b60                USBDeviceClass::sendConfiguration(unsigned long)
  .text._ZN14USBDeviceClass14sendDescriptorER8USBSetup
-                0x00004cb0      0x3cc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x00004cb0                USBDeviceClass::sendDescriptor(USBSetup&)
+                0x00004cb8      0x3cc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00004cb8                USBDeviceClass::sendDescriptor(USBSetup&)
  .text._ZN14USBDeviceClass4initEv
-                0x0000507c       0xb8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x0000507c                USBDeviceClass::init()
+                0x00005084       0xb8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00005084                USBDeviceClass::init()
  .text._ZN14USBDeviceClass6attachEv
-                0x00005134       0x34 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x00005134                USBDeviceClass::attach()
+                0x0000513c       0x34 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x0000513c                USBDeviceClass::attach()
  .text._ZN14USBDeviceClass5flushEm
-                0x00005168       0xa8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x00005168                USBDeviceClass::flush(unsigned long)
+                0x00005170       0xa8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00005170                USBDeviceClass::flush(unsigned long)
  .text._ZN14USBDeviceClass11recvControlEPvm
-                0x00005210       0xc4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x00005210                USBDeviceClass::recvControl(void*, unsigned long)
+                0x00005218       0xc4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00005218                USBDeviceClass::recvControl(void*, unsigned long)
  .text._ZN14USBDeviceClass9availableEm
-                0x000052d4       0x88 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x000052d4                USBDeviceClass::available(unsigned long)
+                0x000052dc       0x88 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x000052dc                USBDeviceClass::available(unsigned long)
  .text._ZN14USBDeviceClass4recvEm
-                0x0000535c      0x220 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x0000535c                USBDeviceClass::recv(unsigned long)
+                0x00005364      0x220 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00005364                USBDeviceClass::recv(unsigned long)
  .text._ZN14USBDeviceClass4sendEmPKvm
-                0x0000557c      0x120 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x0000557c                USBDeviceClass::send(unsigned long, void const*, unsigned long)
+                0x00005584      0x120 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00005584                USBDeviceClass::send(unsigned long, void const*, unsigned long)
  .text._ZN14USBDeviceClass11sendControlEPKvm
-                0x0000569c       0x70 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x0000569c                USBDeviceClass::sendControl(void const*, unsigned long)
+                0x000056a4       0x70 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x000056a4                USBDeviceClass::sendControl(void const*, unsigned long)
  .text._ZN14USBDeviceClass19handleStandardSetupER8USBSetup
-                0x0000570c      0x394 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x0000570c                USBDeviceClass::handleStandardSetup(USBSetup&)
+                0x00005714      0x394 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00005714                USBDeviceClass::handleStandardSetup(USBSetup&)
  .text._ZN14USBDeviceClass10ISRHandlerEv.part.0
-                0x00005aa0      0x318 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00005aa8      0x318 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
  .text.UDD_Handler
-                0x00005db8       0x1c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x00005db8                UDD_Handler
+                0x00005dc0       0x1c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00005dc0                UDD_Handler
  .text.startup._GLOBAL__sub_I_usbd
-                0x00005dd4       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x00005ddc       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
  .text._ZN4UartcvbEv
-                0x00005de4        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
-                0x00005de4                Uart::operator bool()
+                0x00005dec        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+                0x00005dec                Uart::operator bool()
  .text._ZN4Uart9availableEv
-                0x00005de8       0x18 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
-                0x00005de8                Uart::available()
+                0x00005df0       0x18 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+                0x00005df0                Uart::available()
  .text._ZN4Uart4peekEv
-                0x00005e00       0x20 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
-                0x00005e00                Uart::peek()
+                0x00005e08       0x20 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+                0x00005e08                Uart::peek()
  .text._ZN4Uart5beginEmt
-                0x00005e20      0x138 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
-                0x00005e20                Uart::begin(unsigned long, unsigned short)
+                0x00005e28      0x138 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+                0x00005e28                Uart::begin(unsigned long, unsigned short)
  .text._ZN4Uart3endEv
-                0x00005f58       0x2c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
-                0x00005f58                Uart::end()
+                0x00005f60       0x2c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+                0x00005f60                Uart::end()
  .text._ZN4Uart5flushEv
-                0x00005f84       0x24 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
-                0x00005f84                Uart::flush()
+                0x00005f8c       0x24 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+                0x00005f8c                Uart::flush()
  .text._ZN4Uart17availableForWriteEv
-                0x00005fa8       0x2c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
-                0x00005fa8                Uart::availableForWrite()
+                0x00005fb0       0x2c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+                0x00005fb0                Uart::availableForWrite()
  .text._ZN4Uart4readEv
-                0x00005fd4       0x74 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
-                0x00005fd4                Uart::read()
+                0x00005fdc       0x74 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+                0x00005fdc                Uart::read()
  .text._ZN4Uart5beginEm
-                0x00006048      0x100 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
-                0x00006048                Uart::begin(unsigned long)
+                0x00006050      0x100 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+                0x00006050                Uart::begin(unsigned long)
  .text._ZN4UartC2EP6SERCOMhh11SercomRXPad15SercomUartTXPad
-                0x00006148       0xa0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
-                0x00006148                Uart::Uart(SERCOM*, unsigned char, unsigned char, SercomRXPad, SercomUartTXPad)
-                0x00006148                Uart::Uart(SERCOM*, unsigned char, unsigned char, SercomRXPad, SercomUartTXPad)
+                0x00006150       0xa0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+                0x00006150                Uart::Uart(SERCOM*, unsigned char, unsigned char, SercomRXPad, SercomUartTXPad)
+                0x00006150                Uart::Uart(SERCOM*, unsigned char, unsigned char, SercomRXPad, SercomUartTXPad)
  .text._ZN4Uart10IrqHandlerEv
-                0x000061e8      0x10c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
-                0x000061e8                Uart::IrqHandler()
+                0x000061f0      0x10c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+                0x000061f0                Uart::IrqHandler()
  .text._ZN4Uart5writeEh
-                0x000062f4      0x104 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
-                0x000062f4                Uart::write(unsigned char)
+                0x000062fc      0x104 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+                0x000062fc                Uart::write(unsigned char)
  .text.Dummy_Handler
-                0x000063f8        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
-                0x000063f8                DMAC_Handler
-                0x000063f8                HardFault_Handler
-                0x000063f8                AC_Handler
-                0x000063f8                PendSV_Handler
-                0x000063f8                NMI_Handler
-                0x000063f8                TC7_Handler
-                0x000063f8                SERCOM1_Handler
-                0x000063f8                ADC_Handler
-                0x000063f8                TCC1_Handler
-                0x000063f8                SERCOM2_Handler
-                0x000063f8                TCC0_Handler
-                0x000063f8                RTC_Handler
-                0x000063f8                EIC_Handler
-                0x000063f8                TC6_Handler
-                0x000063f8                WDT_Handler
-                0x000063f8                TC4_Handler
-                0x000063f8                Dummy_Handler
-                0x000063f8                PM_Handler
-                0x000063f8                SERCOM5_Handler
-                0x000063f8                SVC_Handler
-                0x000063f8                TCC2_Handler
-                0x000063f8                EVSYS_Handler
-                0x000063f8                SERCOM3_Handler
-                0x000063f8                SERCOM4_Handler
-                0x000063f8                I2S_Handler
-                0x000063f8                NVMCTRL_Handler
-                0x000063f8                DAC_Handler
-                0x000063f8                PTC_Handler
-                0x000063f8                SYSCTRL_Handler
+                0x00006400        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
+                0x00006400                DMAC_Handler
+                0x00006400                HardFault_Handler
+                0x00006400                AC_Handler
+                0x00006400                PendSV_Handler
+                0x00006400                NMI_Handler
+                0x00006400                TC7_Handler
+                0x00006400                SERCOM1_Handler
+                0x00006400                ADC_Handler
+                0x00006400                TCC1_Handler
+                0x00006400                SERCOM2_Handler
+                0x00006400                TCC0_Handler
+                0x00006400                RTC_Handler
+                0x00006400                EIC_Handler
+                0x00006400                TC6_Handler
+                0x00006400                WDT_Handler
+                0x00006400                TC4_Handler
+                0x00006400                Dummy_Handler
+                0x00006400                PM_Handler
+                0x00006400                SERCOM5_Handler
+                0x00006400                SVC_Handler
+                0x00006400                TCC2_Handler
+                0x00006400                EVSYS_Handler
+                0x00006400                SERCOM3_Handler
+                0x00006400                SERCOM4_Handler
+                0x00006400                I2S_Handler
+                0x00006400                NVMCTRL_Handler
+                0x00006400                DAC_Handler
+                0x00006400                PTC_Handler
+                0x00006400                SYSCTRL_Handler
  .text.USB_Handler
-                0x000063fc       0x14 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
-                0x000063fc                USB_Handler
+                0x00006404       0x14 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
+                0x00006404                USB_Handler
  .text.Reset_Handler
-                0x00006410       0x7c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
-                0x00006410                Reset_Handler
+                0x00006418       0x7c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
+                0x00006418                Reset_Handler
  .text.SysTick_Handler
-                0x0000648c       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
-                0x0000648c                SysTick_Handler
+                0x00006494       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
+                0x00006494                SysTick_Handler
  .text.USB_SetHandler
-                0x0000649c        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
-                0x0000649c                USB_SetHandler
- .text.millis   0x000064a8        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
-                0x000064a8                millis
- .text.micros   0x000064b4       0x70 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
-                0x000064b4                micros
- .text.delay    0x00006524      0x118 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
-                0x00006524                delay
+                0x000064a4        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
+                0x000064a4                USB_SetHandler
+ .text.millis   0x000064b0        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
+                0x000064b0                millis
+ .text.micros   0x000064bc       0x70 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
+                0x000064bc                micros
+ .text.delay    0x0000652c      0x118 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
+                0x0000652c                delay
  .text.SysTick_DefaultHandler
-                0x0000663c       0x14 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
-                0x0000663c                SysTick_DefaultHandler
- .text.__empty  0x00006650        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(hooks.c.o)
-                0x00006650                yield
- .text.__false  0x00006654        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(hooks.c.o)
-                0x00006654                sysTickHook
+                0x00006644       0x14 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
+                0x00006644                SysTick_DefaultHandler
+ .text.__empty  0x00006658        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(hooks.c.o)
+                0x00006658                yield
+ .text.__false  0x0000665c        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(hooks.c.o)
+                0x0000665c                sysTickHook
  .text._Z11initVariantv
-                0x00006658        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(main.cpp.o)
-                0x00006658                initVariant()
+                0x00006660        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(main.cpp.o)
+                0x00006660                initVariant()
  .text.startup.main
-                0x0000665c       0x58 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(main.cpp.o)
-                0x0000665c                main
- .text._Znwj    0x000066b4        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(new.cpp.o)
-                0x000066b4                operator new(unsigned int)
- .text._ZdlPv   0x000066bc        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(new.cpp.o)
-                0x000066bc                operator delete(void*)
+                0x00006664       0x58 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(main.cpp.o)
+                0x00006664                main
+ .text._Znwj    0x000066bc        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(new.cpp.o)
+                0x000066bc                operator new(unsigned int)
+ .text._ZdlPv   0x000066c4        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(new.cpp.o)
+                0x000066c4                operator delete(void*)
  .text.SystemInit
-                0x000066c4      0x1b4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(startup.c.o)
-                0x000066c4                SystemInit
- .text.init     0x00006878       0xe0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring.c.o)
-                0x00006878                init
+                0x000066cc      0x1b4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(startup.c.o)
+                0x000066cc                SystemInit
+ .text.init     0x00006880       0xe0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring.c.o)
+                0x00006880                init
  .text.analogWriteResolution
-                0x00006958        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
-                0x00006958                analogWriteResolution
+                0x00006960        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
+                0x00006960                analogWriteResolution
  .text.analogReference
-                0x00006964       0x84 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
-                0x00006964                analogReference
+                0x0000696c       0x84 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
+                0x0000696c                analogReference
  .text.analogWrite
-                0x000069e8      0x220 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
-                0x000069e8                analogWrite
- .text.pinMode  0x00006c08       0x88 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_digital.c.o)
-                0x00006c08                pinMode
+                0x000069f0      0x220 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
+                0x000069f0                analogWrite
+ .text.pinMode  0x00006c10       0x88 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_digital.c.o)
+                0x00006c10                pinMode
  .text.digitalWrite
-                0x00006c90       0x5c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_digital.c.o)
-                0x00006c90                digitalWrite
+                0x00006c98       0x5c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_digital.c.o)
+                0x00006c98                digitalWrite
  .text.digitalRead
-                0x00006cec       0x38 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_digital.c.o)
-                0x00006cec                digitalRead
+                0x00006cf4       0x38 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_digital.c.o)
+                0x00006cf4                digitalRead
  .text.pinPeripheral
-                0x00006d24       0xc4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_private.c.o)
-                0x00006d24                pinPeripheral
+                0x00006d2c       0xc4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_private.c.o)
+                0x00006d2c                pinPeripheral
  .text.initiateReset
-                0x00006de8        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Reset.cpp.o)
-                0x00006de8                initiateReset
+                0x00006df0        0xc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Reset.cpp.o)
+                0x00006df0                initiateReset
  .text.cancelReset
-                0x00006df4       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Reset.cpp.o)
-                0x00006df4                cancelReset
+                0x00006dfc       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Reset.cpp.o)
+                0x00006dfc                cancelReset
  .text.tickReset
-                0x00006e04       0x74 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Reset.cpp.o)
-                0x00006e04                tickReset
+                0x00006e0c       0x74 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Reset.cpp.o)
+                0x00006e0c                tickReset
  .text._ZN13PluggableUSB_12getInterfaceEPh
-                0x00006e78       0x2c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
-                0x00006e78                PluggableUSB_::getInterface(unsigned char*)
+                0x00006e80       0x2c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
+                0x00006e80                PluggableUSB_::getInterface(unsigned char*)
  .text._ZN13PluggableUSB_13getDescriptorER8USBSetup
-                0x00006ea4       0x28 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
-                0x00006ea4                PluggableUSB_::getDescriptor(USBSetup&)
+                0x00006eac       0x28 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
+                0x00006eac                PluggableUSB_::getDescriptor(USBSetup&)
  .text._ZN13PluggableUSB_5setupER8USBSetup
-                0x00006ecc       0x28 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
-                0x00006ecc                PluggableUSB_::setup(USBSetup&)
+                0x00006ed4       0x28 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
+                0x00006ed4                PluggableUSB_::setup(USBSetup&)
  .text._Z12PluggableUSBv
-                0x00006ef4       0x28 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
-                0x00006ef4                PluggableUSB()
+                0x00006efc       0x28 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
+                0x00006efc                PluggableUSB()
  .text._ZN20USBDevice_SAMD21G18x5resetEv
-                0x00006f1c       0x2c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SAMD21_USBDevice.cpp.o)
-                0x00006f1c                USBDevice_SAMD21G18x::reset()
+                0x00006f24       0x2c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SAMD21_USBDevice.cpp.o)
+                0x00006f24                USBDevice_SAMD21G18x::reset()
  .text._ZN20USBDevice_SAMD21G18x9calibrateEv
-                0x00006f48       0x68 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SAMD21_USBDevice.cpp.o)
-                0x00006f48                USBDevice_SAMD21G18x::calibrate()
+                0x00006f50       0x68 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SAMD21_USBDevice.cpp.o)
+                0x00006f50                USBDevice_SAMD21G18x::calibrate()
  .text.__aeabi_atexit
-                0x00006fb0        0xe c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libstdc++_nano.a(atexit_arm.o)
-                0x00006fb0                __aeabi_atexit
- *fill*         0x00006fbe        0x2 
- .text.sin      0x00006fc0       0xa4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-s_sin.o)
-                0x00006fc0                sin
+                0x00006fb8        0xe c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libstdc++_nano.a(atexit_arm.o)
+                0x00006fb8                __aeabi_atexit
+ *fill*         0x00006fc6        0x2 
+ .text.sin      0x00006fc8       0xa4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-s_sin.o)
+                0x00006fc8                sin
  .text.__ieee754_rem_pio2
-                0x00007064      0x400 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-e_rem_pio2.o)
-                0x00007064                __ieee754_rem_pio2
+                0x0000706c      0x400 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-e_rem_pio2.o)
+                0x0000706c                __ieee754_rem_pio2
  .text.__kernel_cos
-                0x00007464      0x230 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-k_cos.o)
-                0x00007464                __kernel_cos
+                0x0000746c      0x230 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-k_cos.o)
+                0x0000746c                __kernel_cos
  .text.__kernel_rem_pio2
-                0x00007694      0x8c4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-k_rem_pio2.o)
-                0x00007694                __kernel_rem_pio2
+                0x0000769c      0x8c4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-k_rem_pio2.o)
+                0x0000769c                __kernel_rem_pio2
  .text.__kernel_sin
-                0x00007f58      0x170 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-k_sin.o)
-                0x00007f58                __kernel_sin
- .text.fabs     0x000080c8        0x8 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-s_fabs.o)
-                0x000080c8                fabs
- .text.floor    0x000080d0      0x128 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-s_floor.o)
-                0x000080d0                floor
- .text.scalbn   0x000081f8       0xf8 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-s_scalbn.o)
-                0x000081f8                scalbn
- .text          0x000082f0      0x114 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
-                0x000082f0                __aeabi_uidiv
-                0x000082f0                __udivsi3
-                0x000083fc                __aeabi_uidivmod
- .text          0x00008404      0x1d4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
-                0x00008404                __divsi3
-                0x00008404                __aeabi_idiv
-                0x000085d0                __aeabi_idivmod
- .text          0x000085d8        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
-                0x000085d8                __aeabi_idiv0
-                0x000085d8                __aeabi_ldiv0
- .text          0x000085dc       0x7c c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_arm_cmpdf2.o)
-                0x000085dc                __aeabi_cdrcmple
-                0x000085ec                __aeabi_cdcmple
-                0x000085ec                __aeabi_cdcmpeq
-                0x000085fc                __aeabi_dcmpeq
-                0x00008608                __aeabi_dcmplt
-                0x0000861c                __aeabi_dcmple
-                0x00008630                __aeabi_dcmpgt
-                0x00008644                __aeabi_dcmpge
- .text          0x00008658       0x74 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_arm_cmpsf2.o)
-                0x00008658                __aeabi_cfrcmple
-                0x00008660                __aeabi_cfcmpeq
-                0x00008660                __aeabi_cfcmple
-                0x00008670                __aeabi_fcmpeq
-                0x0000867c                __aeabi_fcmplt
-                0x00008690                __aeabi_fcmple
-                0x000086a4                __aeabi_fcmpgt
-                0x000086b8                __aeabi_fcmpge
- .text          0x000086cc      0x338 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(addsf3.o)
-                0x000086cc                __aeabi_fadd
- .text          0x00008a04       0x50 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(eqsf2.o)
-                0x00008a04                __eqsf2
-                0x00008a04                __nesf2
- .text          0x00008a54       0x98 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(gesf2.o)
-                0x00008a54                __gesf2
-                0x00008a54                __gtsf2
- .text          0x00008aec       0x94 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(lesf2.o)
-                0x00008aec                __ltsf2
-                0x00008aec                __lesf2
- .text          0x00008b80      0x390 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(subsf3.o)
-                0x00008b80                __aeabi_fsub
- .text          0x00008f10       0x40 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(fixsfsi.o)
-                0x00008f10                __aeabi_f2iz
- .text          0x00008f50       0x8c c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(floatsisf.o)
-                0x00008f50                __aeabi_i2f
- .text          0x00008fdc      0x6d4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(adddf3.o)
-                0x00008fdc                __aeabi_dadd
- .text          0x000096b0      0x5d0 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(divdf3.o)
-                0x000096b0                __aeabi_ddiv
- .text          0x00009c80       0x78 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(eqdf2.o)
-                0x00009c80                __nedf2
-                0x00009c80                __eqdf2
- .text          0x00009cf8       0xe4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(gedf2.o)
-                0x00009cf8                __gedf2
-                0x00009cf8                __gtdf2
- .text          0x00009ddc       0xe0 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(ledf2.o)
-                0x00009ddc                __ledf2
-                0x00009ddc                __ltdf2
- .text          0x00009ebc      0x4d8 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(muldf3.o)
-                0x00009ebc                __aeabi_dmul
- .text          0x0000a394      0x724 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(subdf3.o)
-                0x0000a394                __aeabi_dsub
- .text          0x0000aab8       0x6c c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(fixdfsi.o)
-                0x0000aab8                __aeabi_d2iz
- .text          0x0000ab24       0x60 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(floatsidf.o)
-                0x0000ab24                __aeabi_i2d
- .text          0x0000ab84      0x110 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(truncdfsf2.o)
-                0x0000ab84                __aeabi_d2f
- .text          0x0000ac94       0x3c c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_clzsi2.o)
-                0x0000ac94                __clzsi2
- .text.calloc   0x0000acd0       0x14 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-calloc.o)
-                0x0000acd0                calloc
+                0x00007f60      0x170 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-k_sin.o)
+                0x00007f60                __kernel_sin
+ .text.fabs     0x000080d0        0x8 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-s_fabs.o)
+                0x000080d0                fabs
+ .text.floor    0x000080d8      0x128 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-s_floor.o)
+                0x000080d8                floor
+ .text.scalbn   0x00008200       0xf8 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-s_scalbn.o)
+                0x00008200                scalbn
+ .text          0x000082f8      0x114 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+                0x000082f8                __aeabi_uidiv
+                0x000082f8                __udivsi3
+                0x00008404                __aeabi_uidivmod
+ .text          0x0000840c      0x1d4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+                0x0000840c                __divsi3
+                0x0000840c                __aeabi_idiv
+                0x000085d8                __aeabi_idivmod
+ .text          0x000085e0        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+                0x000085e0                __aeabi_idiv0
+                0x000085e0                __aeabi_ldiv0
+ .text          0x000085e4       0x7c c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_arm_cmpdf2.o)
+                0x000085e4                __aeabi_cdrcmple
+                0x000085f4                __aeabi_cdcmple
+                0x000085f4                __aeabi_cdcmpeq
+                0x00008604                __aeabi_dcmpeq
+                0x00008610                __aeabi_dcmplt
+                0x00008624                __aeabi_dcmple
+                0x00008638                __aeabi_dcmpgt
+                0x0000864c                __aeabi_dcmpge
+ .text          0x00008660       0x74 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_arm_cmpsf2.o)
+                0x00008660                __aeabi_cfrcmple
+                0x00008668                __aeabi_cfcmpeq
+                0x00008668                __aeabi_cfcmple
+                0x00008678                __aeabi_fcmpeq
+                0x00008684                __aeabi_fcmplt
+                0x00008698                __aeabi_fcmple
+                0x000086ac                __aeabi_fcmpgt
+                0x000086c0                __aeabi_fcmpge
+ .text          0x000086d4      0x338 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(addsf3.o)
+                0x000086d4                __aeabi_fadd
+ .text          0x00008a0c       0x50 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(eqsf2.o)
+                0x00008a0c                __eqsf2
+                0x00008a0c                __nesf2
+ .text          0x00008a5c       0x98 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(gesf2.o)
+                0x00008a5c                __gesf2
+                0x00008a5c                __gtsf2
+ .text          0x00008af4       0x94 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(lesf2.o)
+                0x00008af4                __ltsf2
+                0x00008af4                __lesf2
+ .text          0x00008b88      0x390 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(subsf3.o)
+                0x00008b88                __aeabi_fsub
+ .text          0x00008f18       0x40 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(fixsfsi.o)
+                0x00008f18                __aeabi_f2iz
+ .text          0x00008f58       0x8c c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(floatsisf.o)
+                0x00008f58                __aeabi_i2f
+ .text          0x00008fe4      0x6d4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(adddf3.o)
+                0x00008fe4                __aeabi_dadd
+ .text          0x000096b8      0x5d0 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(divdf3.o)
+                0x000096b8                __aeabi_ddiv
+ .text          0x00009c88       0x78 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(eqdf2.o)
+                0x00009c88                __nedf2
+                0x00009c88                __eqdf2
+ .text          0x00009d00       0xe4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(gedf2.o)
+                0x00009d00                __gedf2
+                0x00009d00                __gtdf2
+ .text          0x00009de4       0xe0 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(ledf2.o)
+                0x00009de4                __ledf2
+                0x00009de4                __ltdf2
+ .text          0x00009ec4      0x4d8 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(muldf3.o)
+                0x00009ec4                __aeabi_dmul
+ .text          0x0000a39c      0x724 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(subdf3.o)
+                0x0000a39c                __aeabi_dsub
+ .text          0x0000aac0       0x6c c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(fixdfsi.o)
+                0x0000aac0                __aeabi_d2iz
+ .text          0x0000ab2c       0x60 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(floatsidf.o)
+                0x0000ab2c                __aeabi_i2d
+ .text          0x0000ab8c      0x110 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(truncdfsf2.o)
+                0x0000ab8c                __aeabi_d2f
+ .text          0x0000ac9c       0x3c c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(_clzsi2.o)
+                0x0000ac9c                __clzsi2
+ .text.calloc   0x0000acd8       0x14 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-calloc.o)
+                0x0000acd8                calloc
  .text.__cxa_atexit
-                0x0000ace4       0x1c c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-cxa_atexit.o)
-                0x0000ace4                __cxa_atexit
+                0x0000acec       0x1c c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-cxa_atexit.o)
+                0x0000acec                __cxa_atexit
  .text.__libc_init_array
-                0x0000ad00       0x48 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-init.o)
-                0x0000ad00                __libc_init_array
- .text.malloc   0x0000ad48       0x14 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-malloc.o)
-                0x0000ad48                malloc
- .text.free     0x0000ad5c       0x14 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-malloc.o)
-                0x0000ad5c                free
- .text.memcpy   0x0000ad70       0x12 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
-                0x0000ad70                memcpy
- .text.memset   0x0000ad82       0x10 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-memset.o)
-                0x0000ad82                memset
+                0x0000ad08       0x48 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-init.o)
+                0x0000ad08                __libc_init_array
+ .text.malloc   0x0000ad50       0x14 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-malloc.o)
+                0x0000ad50                malloc
+ .text.free     0x0000ad64       0x14 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-malloc.o)
+                0x0000ad64                free
+ .text.memcpy   0x0000ad78       0x12 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
+                0x0000ad78                memcpy
+ .text.memset   0x0000ad8a       0x10 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-memset.o)
+                0x0000ad8a                memset
  .text._calloc_r
-                0x0000ad92       0x1c c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-nano-callocr.o)
-                0x0000ad92                _calloc_r
- *fill*         0x0000adae        0x2 
- .text._free_r  0x0000adb0       0x94 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-nano-freer.o)
-                0x0000adb0                _free_r
+                0x0000ad9a       0x1c c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-nano-callocr.o)
+                0x0000ad9a                _calloc_r
+ *fill*         0x0000adb6        0x2 
+ .text._free_r  0x0000adb8       0x94 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-nano-freer.o)
+                0x0000adb8                _free_r
  .text._malloc_r
-                0x0000ae44       0xbc c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-nano-mallocr.o)
-                0x0000ae44                _malloc_r
- .text._sbrk_r  0x0000af00       0x24 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-sbrkr.o)
-                0x0000af00                _sbrk_r
- .text          0x0000af24        0xe c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-strlen.o)
-                0x0000af24                strlen
- *fill*         0x0000af32        0x2 
+                0x0000ae4c       0xbc c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-nano-mallocr.o)
+                0x0000ae4c                _malloc_r
+ .text._sbrk_r  0x0000af08       0x24 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-sbrkr.o)
+                0x0000af08                _sbrk_r
+ .text          0x0000af2c        0xe c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-strlen.o)
+                0x0000af2c                strlen
+ *fill*         0x0000af3a        0x2 
  .text.__malloc_lock
-                0x0000af34       0x10 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-mlock.o)
-                0x0000af34                __malloc_lock
+                0x0000af3c       0x10 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-mlock.o)
+                0x0000af3c                __malloc_lock
  .text.__malloc_unlock
-                0x0000af44       0x10 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-mlock.o)
-                0x0000af44                __malloc_unlock
+                0x0000af4c       0x10 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-mlock.o)
+                0x0000af4c                __malloc_unlock
  .text.__retarget_lock_acquire_recursive
-                0x0000af54        0x2 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-lock.o)
-                0x0000af54                __retarget_lock_acquire_recursive
+                0x0000af5c        0x2 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-lock.o)
+                0x0000af5c                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x0000af56        0x2 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-lock.o)
-                0x0000af56                __retarget_lock_release_recursive
- .text._sbrk    0x0000af58       0x1c c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libnosys.a(sbrk.o)
-                0x0000af58                _sbrk
+                0x0000af5e        0x2 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-lock.o)
+                0x0000af5e                __retarget_lock_release_recursive
+ .text._sbrk    0x0000af60       0x1c c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libnosys.a(sbrk.o)
+                0x0000af60                _sbrk
  *(.init)
- .init          0x0000af74        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
-                0x0000af74                _init
- .init          0x0000af78        0x8 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
+ .init          0x0000af7c        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
+                0x0000af7c                _init
+ .init          0x0000af80        0x8 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
  *(.fini)
- .fini          0x0000af80        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
-                0x0000af80                _fini
- .fini          0x0000af84        0x8 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
+ .fini          0x0000af88        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
+                0x0000af88                _fini
+ .fini          0x0000af8c        0x8 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -2183,83 +2183,83 @@ LOAD c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eab
  *(.dtors)
  *(.rodata*)
  .rodata.setup.str1.4
-                0x0000af8c       0x19 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x0000af94       0x19 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
                                  0x1d (size before relaxing)
- *fill*         0x0000afa5        0x3 
- .rodata.setup  0x0000afa8      0x114 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
- .rodata        0x0000b0bc       0x24 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
+ *fill*         0x0000afad        0x3 
+ .rodata.setup  0x0000afb0      0x114 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+ .rodata        0x0000b0c4       0x24 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
  .rodata.g_APinDescription
-                0x0000b0e0      0x420 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
-                0x0000b0e0                g_APinDescription
+                0x0000b0e8      0x420 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+                0x0000b0e8                g_APinDescription
  .rodata._ZN5Print7printlnEPK19__FlashStringHelper.str1.4
-                0x0000b500        0x3 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
- *fill*         0x0000b503        0x1 
+                0x0000b508        0x3 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
+ *fill*         0x0000b50b        0x1 
  .rodata._ZL10sercomData
-                0x0000b504       0x30 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+                0x0000b50c       0x30 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
  .rodata._ZTV7Serial_
-                0x0000b534       0x24 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
-                0x0000b534                vtable for Serial_
+                0x0000b53c       0x24 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x0000b53c                vtable for Serial_
  .rodata._ZN14USBDeviceClass19handleStandardSetupER8USBSetup
-                0x0000b558       0x30 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x0000b560       0x30 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
  .rodata._ZTV26DoubleBufferedEPOutHandler
-                0x0000b588       0x20 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x0000b588                vtable for DoubleBufferedEPOutHandler
+                0x0000b590       0x20 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x0000b590                vtable for DoubleBufferedEPOutHandler
  .rodata._ZL14STRING_PRODUCT
-                0x0000b5a8       0x15 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
- *fill*         0x0000b5bd        0x3 
+                0x0000b5b0       0x15 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+ *fill*         0x0000b5c5        0x3 
  .rodata._ZL15STRING_LANGUAGE
-                0x0000b5c0        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x0000b5c8        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
  .rodata._ZL19STRING_MANUFACTURER
-                0x0000b5c4        0x9 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
- *fill*         0x0000b5cd        0x3 
+                0x0000b5cc        0x9 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+ *fill*         0x0000b5d5        0x3 
  .rodata._ZL21USB_DeviceDescriptorB
-                0x0000b5d0       0x12 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
- *fill*         0x0000b5e2        0x2 
+                0x0000b5d8       0x12 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+ *fill*         0x0000b5ea        0x2 
  .rodata._ZTV4Uart
-                0x0000b5e4       0x34 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
-                0x0000b5e4                vtable for Uart
- .rodata        0x0000b618       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
+                0x0000b5ec       0x34 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+                0x0000b5ec                vtable for Uart
+ .rodata        0x0000b620       0x10 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
  .rodata.npio2_hw
-                0x0000b628       0x80 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-e_rem_pio2.o)
+                0x0000b630       0x80 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-e_rem_pio2.o)
  .rodata.two_over_pi
-                0x0000b6a8      0x108 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-e_rem_pio2.o)
- .rodata.PIo2   0x0000b7b0       0x40 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-k_rem_pio2.o)
+                0x0000b6b0      0x108 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-e_rem_pio2.o)
+ .rodata.PIo2   0x0000b7b8       0x40 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-k_rem_pio2.o)
  .rodata.init_jk
-                0x0000b7f0       0x10 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-k_rem_pio2.o)
- .rodata        0x0000b800       0x40 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(divdf3.o)
- .rodata        0x0000b840       0x40 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(muldf3.o)
+                0x0000b7f8       0x10 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a(lib_a-k_rem_pio2.o)
+ .rodata        0x0000b808       0x40 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(divdf3.o)
+ .rodata        0x0000b848       0x40 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp\libgcc.a(muldf3.o)
  *(.eh_frame*)
- .eh_frame      0x0000b880        0x0 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
- .eh_frame      0x0000b880        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtend.o
+ .eh_frame      0x0000b888        0x0 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+ .eh_frame      0x0000b888        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtend.o
 
-.glue_7         0x0000b884        0x0
- .glue_7        0x0000b884        0x0 linker stubs
+.glue_7         0x0000b88c        0x0
+ .glue_7        0x0000b88c        0x0 linker stubs
 
-.glue_7t        0x0000b884        0x0
- .glue_7t       0x0000b884        0x0 linker stubs
+.glue_7t        0x0000b88c        0x0
+ .glue_7t       0x0000b88c        0x0 linker stubs
 
-.vfp11_veneer   0x0000b884        0x0
- .vfp11_veneer  0x0000b884        0x0 linker stubs
+.vfp11_veneer   0x0000b88c        0x0
+ .vfp11_veneer  0x0000b88c        0x0 linker stubs
 
-.v4_bx          0x0000b884        0x0
- .v4_bx         0x0000b884        0x0 linker stubs
+.v4_bx          0x0000b88c        0x0
+ .v4_bx         0x0000b88c        0x0 linker stubs
 
-.iplt           0x0000b884        0x0
- .iplt          0x0000b884        0x0 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x0000b88c        0x0
+ .iplt          0x0000b88c        0x0 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.rel.dyn        0x0000b884        0x0
- .rel.iplt      0x0000b884        0x0 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+.rel.dyn        0x0000b88c        0x0
+ .rel.iplt      0x0000b88c        0x0 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000b884                __exidx_start = .
+                0x0000b88c                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000b884                __exidx_end = .
-                0x0000b884                __etext = .
+                0x0000b88c                __exidx_end = .
+                0x0000b88c                __etext = .
 
-.data           0x20000000      0x140 load address 0x0000b884
+.data           0x20000000      0x140 load address 0x0000b88c
                 0x20000000                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -2277,63 +2277,65 @@ LOAD c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eab
                 0x20000014                pwid
  .data.pwmf     0x20000018        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
                 0x20000018                pwmf
+ .data.tbs      0x2000001c        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x2000001c                tbs
  .data.g_apTCInstances
-                0x2000001c       0x18 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
-                0x2000001c                g_apTCInstances
+                0x20000020       0x18 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+                0x20000020                g_apTCInstances
  .data._ZL10breakValue
-                0x20000034        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x20000038        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
  .data._ZL12_usbLineInfo
-                0x20000038        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x2000003c        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
  .data._ZL13_cdcInterface
-                0x20000040       0x42 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
- *fill*         0x20000082        0x2 
+                0x20000044       0x42 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+ *fill*         0x20000086        0x2 
  .data._serialPeek
-                0x20000084        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
-                0x20000084                _serialPeek
+                0x20000088        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x20000088                _serialPeek
  .data.EndPoints
-                0x20000088       0x28 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x20000088                EndPoints
+                0x2000008c       0x28 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x2000008c                EndPoints
  .data.SystemCoreClock
-                0x200000b0        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring.c.o)
-                0x200000b0                SystemCoreClock
+                0x200000b4        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring.c.o)
+                0x200000b4                SystemCoreClock
  .data._writeResolution
-                0x200000b4        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
+                0x200000b8        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
  .data._ZL5ticks
-                0x200000b8        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Reset.cpp.o)
+                0x200000bc        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Reset.cpp.o)
  .data._impure_ptr
-                0x200000bc        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-impure.o)
-                0x200000bc                _impure_ptr
+                0x200000c0        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-impure.o)
+                0x200000c0                _impure_ptr
  .data.impure_data
-                0x200000c0       0x60 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-impure.o)
-                0x20000120                . = ALIGN (0x4)
-                0x20000120                PROVIDE (__preinit_array_start = .)
+                0x200000c4       0x60 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-impure.o)
+                0x20000124                . = ALIGN (0x4)
+                0x20000124                PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
-                0x20000120                PROVIDE (__preinit_array_end = .)
-                0x20000120                . = ALIGN (0x4)
-                0x20000120                PROVIDE (__init_array_start = .)
+                0x20000124                PROVIDE (__preinit_array_end = .)
+                0x20000124                . = ALIGN (0x4)
+                0x20000124                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
- .init_array    0x20000120        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
- .init_array    0x20000124        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
- .init_array    0x20000128        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
- .init_array    0x2000012c        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
- .init_array    0x20000130        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x20000134                PROVIDE (__init_array_end = .)
-                0x20000134                . = ALIGN (0x4)
+ .init_array    0x20000124        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+ .init_array    0x20000128        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+ .init_array    0x2000012c        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+ .init_array    0x20000130        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+ .init_array    0x20000134        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x20000138                PROVIDE (__init_array_end = .)
+                0x20000138                . = ALIGN (0x4)
                 [!provide]                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array)
- .fini_array    0x20000134        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+ .fini_array    0x20000138        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
                 [!provide]                PROVIDE (__fini_array_end = .)
  *(.jcr*)
                 0x20000140                . = ALIGN (0x10)
- *fill*         0x20000138        0x8 
+ *fill*         0x2000013c        0x4 
                 0x20000140                __data_end__ = .
 
-.igot.plt       0x20000140        0x0 load address 0x0000b9c4
+.igot.plt       0x20000140        0x0 load address 0x0000b9cc
  .igot.plt      0x20000140        0x0 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.bss            0x20000140     0x6628 load address 0x0000b9c4
+.bss            0x20000140     0x6228 load address 0x0000b9cc
                 0x20000140                . = ALIGN (0x4)
                 0x20000140                __bss_start__ = .
  *(.bss*)
@@ -2350,144 +2352,144 @@ LOAD c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eab
                 0x2000016c                at2
  .bss.awgon     0x20000170        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
                 0x20000170                awgon
- .bss.awgouta   0x20000174     0x2000 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+ .bss.awgouta   0x20000174     0x1000 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
                 0x20000174                awgouta
- .bss.awgoutb   0x20002174     0x2000 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x20002174                awgoutb
- .bss.awgpwnon  0x20004174        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x20004174                awgpwnon
- .bss.cyclea    0x20004178        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x20004178                cyclea
- .bss.data      0x2000417c        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x2000417c                data
- .bss.digin     0x20004180      0x400 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x20004180                digin
- .bss.m         0x20004580        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x20004580                m
- .bss.n         0x20004584        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x20004584                n
- .bss.offseta   0x20004588        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x20004588                offseta
- .bss.pixels    0x2000458c       0x18 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x2000458c                pixels
- .bss.scopea    0x200045a4      0x800 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x200045a4                scopea
- .bss.scopeb    0x20004da4      0x800 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x20004da4                scopeb
- .bss.scopec    0x200055a4      0x800 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x200055a4                scopec
- .bss.st        0x20005da4        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x20005da4                st
- .bss.st2       0x20005da8        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x20005da8                st2
- .bss.sync      0x20005dac        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x20005dac                sync
- .bss.wavea     0x20005db0        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x20005db0                wavea
+ .bss.awgoutb   0x20001174     0x1000 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x20001174                awgoutb
+ .bss.awgpwnon  0x20002174        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x20002174                awgpwnon
+ .bss.cyclea    0x20002178        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x20002178                cyclea
+ .bss.data      0x2000217c        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x2000217c                data
+ .bss.digin     0x20002180      0x800 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x20002180                digin
+ .bss.m         0x20002980        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x20002980                m
+ .bss.n         0x20002984        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x20002984                n
+ .bss.offseta   0x20002988        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x20002988                offseta
+ .bss.pixels    0x2000298c       0x18 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x2000298c                pixels
+ .bss.scopea    0x200029a4     0x1000 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x200029a4                scopea
+ .bss.scopeb    0x200039a4     0x1000 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x200039a4                scopeb
+ .bss.scopec    0x200049a4     0x1000 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x200049a4                scopec
+ .bss.st        0x200059a4        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x200059a4                st
+ .bss.st2       0x200059a8        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x200059a8                st2
+ .bss.sync      0x200059ac        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x200059ac                sync
+ .bss.wavea     0x200059b0        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x200059b0                wavea
  .bss.zerotimer
-                0x20005db4       0x3c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
-                0x20005db4                zerotimer
+                0x200059b4       0x3c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+                0x200059b4                zerotimer
  .bss._ZL21_enable_callback_mask
-                0x20005df0        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
+                0x200059f0        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
  .bss._ZL23_register_callback_mask
-                0x20005df4        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
- .bss._ZL4__cb  0x20005df8       0x48 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
- .bss.Serial1   0x20005e40      0x2fc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
-                0x20005e40                Serial1
- .bss.sercom0   0x2000613c        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
-                0x2000613c                sercom0
- .bss.sercom1   0x20006140        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
-                0x20006140                sercom1
- .bss.sercom2   0x20006144        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
-                0x20006144                sercom2
- .bss.sercom3   0x20006148        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
-                0x20006148                sercom3
- .bss.sercom4   0x2000614c        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
-                0x2000614c                sercom4
- .bss.sercom5   0x20006150        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
-                0x20006150                sercom5
- .bss.Serial    0x20006154       0x1c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
-                0x20006154                Serial
+                0x200059f4        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
+ .bss._ZL4__cb  0x200059f8       0x48 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
+ .bss.Serial1   0x20005a40      0x2fc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+                0x20005a40                Serial1
+ .bss.sercom0   0x20005d3c        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+                0x20005d3c                sercom0
+ .bss.sercom1   0x20005d40        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+                0x20005d40                sercom1
+ .bss.sercom2   0x20005d44        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+                0x20005d44                sercom2
+ .bss.sercom3   0x20005d48        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+                0x20005d48                sercom3
+ .bss.sercom4   0x20005d4c        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+                0x20005d4c                sercom4
+ .bss.sercom5   0x20005d50        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+                0x20005d50                sercom5
+ .bss.Serial    0x20005d54       0x1c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+                0x20005d54                Serial
  .bss.USBDevice
-                0x20006170        0x1 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x20006170                USBDevice
- *fill*         0x20006171        0x3 
+                0x20005d70        0x1 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x20005d70                USBDevice
+ *fill*         0x20005d71        0x3 
  .bss._ZL10epHandlers
-                0x20006174       0x1c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x20005d74       0x1c C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
  .bss._ZL14isEndpointHalt
-                0x20006190        0x1 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
- *fill*         0x20006191        0x3 
+                0x20005d90        0x1 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+ *fill*         0x20005d91        0x3 
  .bss._ZL20LastTransmitTimedOut
-                0x20006194        0x7 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x20005d94        0x7 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
  .bss._ZL21isRemoteWakeUpEnabled
-                0x2000619b        0x1 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x20005d9b        0x1 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
  .bss._ZL22udd_ep_in_cache_buffer
-                0x2000619c      0x1c0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x20005d9c      0x1c0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
  .bss._ZL23udd_ep_out_cache_buffer
-                0x2000635c      0x1c0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
- .bss._dry_run  0x2000651c        0x1 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x2000651c                _dry_run
- *fill*         0x2000651d        0x3 
+                0x20005f5c      0x1c0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+ .bss._dry_run  0x2000611c        0x1 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x2000611c                _dry_run
+ *fill*         0x2000611d        0x3 
  .bss._pack_buffer
-                0x20006520      0x100 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x20006520                _pack_buffer
+                0x20006120      0x100 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x20006120                _pack_buffer
  .bss._pack_message
-                0x20006620        0x1 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x20006620                _pack_message
- *fill*         0x20006621        0x1 
+                0x20006220        0x1 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x20006220                _pack_message
+ *fill*         0x20006221        0x1 
  .bss._pack_size
-                0x20006622        0x2 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x20006622                _pack_size
+                0x20006222        0x2 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x20006222                _pack_size
  .bss._usbConfiguration
-                0x20006624        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x20006624                _usbConfiguration
+                0x20006224        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x20006224                _usbConfiguration
  .bss._usbSetInterface
-                0x20006628        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x20006628                _usbSetInterface
- .bss.usbd      0x2000662c      0x104 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
-                0x2000662c                usbd
- .bss.usb_isr   0x20006730        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
+                0x20006228        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x20006228                _usbSetInterface
+ .bss.usbd      0x2000622c      0x104 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+                0x2000622c                usbd
+ .bss.usb_isr   0x20006330        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
  .bss._ulTickCount
-                0x20006734        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
+                0x20006334        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
  .bss.tcEnabled.12747
-                0x20006738        0x6 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
- *fill*         0x2000673e        0x2 
+                0x20006338        0x6 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
+ *fill*         0x2000633e        0x2 
  .bss._ZGVZ12PluggableUSBvE3obj
-                0x20006740        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
+                0x20006340        0x4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
  .bss._ZZ12PluggableUSBvE3obj
-                0x20006744        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
+                0x20006344        0x8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
  .bss.__malloc_free_list
-                0x2000674c        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-nano-mallocr.o)
-                0x2000674c                __malloc_free_list
+                0x2000634c        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-nano-mallocr.o)
+                0x2000634c                __malloc_free_list
  .bss.__malloc_sbrk_start
-                0x20006750        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-nano-mallocr.o)
-                0x20006750                __malloc_sbrk_start
+                0x20006350        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-nano-mallocr.o)
+                0x20006350                __malloc_sbrk_start
  .bss.heap_end.4144
-                0x20006754        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libnosys.a(sbrk.o)
+                0x20006354        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libnosys.a(sbrk.o)
  *(COMMON)
- COMMON         0x20006758        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-reent.o)
-                0x20006758                errno
- COMMON         0x2000675c        0x9 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-lock.o)
-                0x2000675c                __lock___atexit_recursive_mutex
-                0x2000675d                __lock___arc4random_mutex
-                0x2000675e                __lock___env_recursive_mutex
-                0x2000675f                __lock___sinit_recursive_mutex
-                0x20006760                __lock___malloc_recursive_mutex
-                0x20006761                __lock___at_quick_exit_mutex
-                0x20006762                __lock___dd_hash_mutex
-                0x20006763                __lock___tz_mutex
-                0x20006764                __lock___sfp_recursive_mutex
-                0x20006768                . = ALIGN (0x4)
- *fill*         0x20006765        0x3 
-                0x20006768                __bss_end__ = .
+ COMMON         0x20006358        0x4 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-reent.o)
+                0x20006358                errno
+ COMMON         0x2000635c        0x9 c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-lock.o)
+                0x2000635c                __lock___atexit_recursive_mutex
+                0x2000635d                __lock___arc4random_mutex
+                0x2000635e                __lock___env_recursive_mutex
+                0x2000635f                __lock___sinit_recursive_mutex
+                0x20006360                __lock___malloc_recursive_mutex
+                0x20006361                __lock___at_quick_exit_mutex
+                0x20006362                __lock___dd_hash_mutex
+                0x20006363                __lock___tz_mutex
+                0x20006364                __lock___sfp_recursive_mutex
+                0x20006368                . = ALIGN (0x4)
+ *fill*         0x20006365        0x3 
+                0x20006368                __bss_end__ = .
 
-.heap           0x20006768        0x0
-                0x20006768                __end__ = .
-                0x20006768                PROVIDE (end = .)
+.heap           0x20006368        0x0
+                0x20006368                __end__ = .
+                0x20006368                PROVIDE (end = .)
  *(.heap*)
-                0x20006768                __HeapLimit = .
+                0x20006368                __HeapLimit = .
 
-.stack_dummy    0x20006768        0x0
+.stack_dummy    0x20006368        0x0
  *(.stack*)
                 0x20008000                __StackTop = (ORIGIN (RAM) + LENGTH (RAM))
                 0x20008000                __StackLimit = (__StackTop - SIZEOF (.stack_dummy))
@@ -2675,30 +2677,30 @@ OUTPUT(C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D
  .comment       0x00000079       0x7a C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
  .comment       0x00000079       0x7a C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SAMD21_USBDevice.cpp.o)
 
-.debug_info     0x00000000    0x9889d
- .debug_info    0x00000000     0xe8cc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
- .debug_info    0x0000e8cc     0x93d1 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
- .debug_info    0x00017c9d     0x8551 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
- .debug_info    0x000201ee     0x6ce6 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
- .debug_info    0x00026ed4     0xae74 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
- .debug_info    0x00031d48     0x82b0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
- .debug_info    0x00039ff8     0x8e80 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Stream.cpp.o)
- .debug_info    0x00042e78     0x9157 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
- .debug_info    0x0004bfcf    0x12d57 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
- .debug_info    0x0005ed26     0xa05e C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
- .debug_info    0x00068d84     0x12c4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
- .debug_info    0x0006a048     0x1616 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
- .debug_info    0x0006b65e       0x67 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(hooks.c.o)
- .debug_info    0x0006b6c5     0x6952 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(main.cpp.o)
- .debug_info    0x00072017     0x1111 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(new.cpp.o)
- .debug_info    0x00073128     0x3902 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(startup.c.o)
- .debug_info    0x00076a2a     0x30e0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring.c.o)
- .debug_info    0x00079b0a     0x562f C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
- .debug_info    0x0007f139     0x1a23 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_digital.c.o)
- .debug_info    0x00080b5c     0x19c4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_private.c.o)
- .debug_info    0x00082520     0x6f27 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Reset.cpp.o)
- .debug_info    0x00089447     0x6e36 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
- .debug_info    0x0009027d     0x8620 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SAMD21_USBDevice.cpp.o)
+.debug_info     0x00000000    0x988a6
+ .debug_info    0x00000000     0xe8d5 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+ .debug_info    0x0000e8d5     0x93d1 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
+ .debug_info    0x00017ca6     0x8551 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
+ .debug_info    0x000201f7     0x6ce6 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+ .debug_info    0x00026edd     0xae74 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
+ .debug_info    0x00031d51     0x82b0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+ .debug_info    0x0003a001     0x8e80 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Stream.cpp.o)
+ .debug_info    0x00042e81     0x9157 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+ .debug_info    0x0004bfd8    0x12d57 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+ .debug_info    0x0005ed2f     0xa05e C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+ .debug_info    0x00068d8d     0x12c4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
+ .debug_info    0x0006a051     0x1616 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
+ .debug_info    0x0006b667       0x67 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(hooks.c.o)
+ .debug_info    0x0006b6ce     0x6952 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(main.cpp.o)
+ .debug_info    0x00072020     0x1111 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(new.cpp.o)
+ .debug_info    0x00073131     0x3902 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(startup.c.o)
+ .debug_info    0x00076a33     0x30e0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring.c.o)
+ .debug_info    0x00079b13     0x562f C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
+ .debug_info    0x0007f142     0x1a23 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_digital.c.o)
+ .debug_info    0x00080b65     0x19c4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_private.c.o)
+ .debug_info    0x00082529     0x6f27 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Reset.cpp.o)
+ .debug_info    0x00089450     0x6e36 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
+ .debug_info    0x00090286     0x8620 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SAMD21_USBDevice.cpp.o)
 
 .debug_abbrev   0x00000000     0x9dab
  .debug_abbrev  0x00000000      0xb57 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
@@ -2725,27 +2727,27 @@ OUTPUT(C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D
  .debug_abbrev  0x00008f58      0x791 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
  .debug_abbrev  0x000096e9      0x6c2 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SAMD21_USBDevice.cpp.o)
 
-.debug_loc      0x00000000    0x18298
- .debug_loc     0x00000000     0x1483 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
- .debug_loc     0x00001483     0x17af C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
- .debug_loc     0x00002c32     0x1ef4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
- .debug_loc     0x00004b26       0x2e C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
- .debug_loc     0x00004b54     0x4cf4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
- .debug_loc     0x00009848     0x1229 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
- .debug_loc     0x0000aa71     0x13c6 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Stream.cpp.o)
- .debug_loc     0x0000be37      0x947 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
- .debug_loc     0x0000c77e     0x95d6 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
- .debug_loc     0x00015d54     0x1069 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
- .debug_loc     0x00016dbd       0x2a C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
- .debug_loc     0x00016de7      0x3d8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
- .debug_loc     0x000171bf       0x4a C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(new.cpp.o)
- .debug_loc     0x00017209       0xea C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(startup.c.o)
- .debug_loc     0x000172f3       0xd9 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring.c.o)
- .debug_loc     0x000173cc      0x607 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
- .debug_loc     0x000179d3      0x2a1 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_digital.c.o)
- .debug_loc     0x00017c74      0x1a2 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_private.c.o)
- .debug_loc     0x00017e16      0x3ca C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
- .debug_loc     0x000181e0       0xb8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SAMD21_USBDevice.cpp.o)
+.debug_loc      0x00000000    0x1823e
+ .debug_loc     0x00000000     0x1429 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+ .debug_loc     0x00001429     0x17af C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
+ .debug_loc     0x00002bd8     0x1ef4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
+ .debug_loc     0x00004acc       0x2e C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+ .debug_loc     0x00004afa     0x4cf4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
+ .debug_loc     0x000097ee     0x1229 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+ .debug_loc     0x0000aa17     0x13c6 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Stream.cpp.o)
+ .debug_loc     0x0000bddd      0x947 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+ .debug_loc     0x0000c724     0x95d6 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+ .debug_loc     0x00015cfa     0x1069 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+ .debug_loc     0x00016d63       0x2a C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
+ .debug_loc     0x00016d8d      0x3d8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
+ .debug_loc     0x00017165       0x4a C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(new.cpp.o)
+ .debug_loc     0x000171af       0xea C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(startup.c.o)
+ .debug_loc     0x00017299       0xd9 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring.c.o)
+ .debug_loc     0x00017372      0x607 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
+ .debug_loc     0x00017979      0x2a1 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_digital.c.o)
+ .debug_loc     0x00017c1a      0x1a2 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_private.c.o)
+ .debug_loc     0x00017dbc      0x3ca C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
+ .debug_loc     0x00018186       0xb8 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SAMD21_USBDevice.cpp.o)
 
 .debug_aranges  0x00000000      0xac8
  .debug_aranges
@@ -2820,30 +2822,30 @@ OUTPUT(C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D
  .debug_ranges  0x000051c0       0x80 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
  .debug_ranges  0x00005240       0x18 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SAMD21_USBDevice.cpp.o)
 
-.debug_line     0x00000000    0x178da
- .debug_line    0x00000000     0x2959 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
- .debug_line    0x00002959     0x1668 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
- .debug_line    0x00003fc1     0x1974 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
- .debug_line    0x00005935      0x6d4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
- .debug_line    0x00006009     0x1e11 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
- .debug_line    0x00007e1a     0x18ed C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
- .debug_line    0x00009707     0x11cc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Stream.cpp.o)
- .debug_line    0x0000a8d3      0xdbf C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
- .debug_line    0x0000b692     0x5181 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
- .debug_line    0x00010813     0x12e9 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
- .debug_line    0x00011afc      0x491 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
- .debug_line    0x00011f8d      0x848 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
- .debug_line    0x000127d5       0xd6 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(hooks.c.o)
- .debug_line    0x000128ab      0x80d C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(main.cpp.o)
- .debug_line    0x000130b8      0x432 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(new.cpp.o)
- .debug_line    0x000134ea      0x77a C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(startup.c.o)
- .debug_line    0x00013c64      0x7a0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring.c.o)
- .debug_line    0x00014404      0xd41 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
- .debug_line    0x00015145      0x64d C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_digital.c.o)
- .debug_line    0x00015792      0x5fc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_private.c.o)
- .debug_line    0x00015d8e      0x910 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Reset.cpp.o)
- .debug_line    0x0001669e      0xa38 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
- .debug_line    0x000170d6      0x804 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SAMD21_USBDevice.cpp.o)
+.debug_line     0x00000000    0x178a8
+ .debug_line    0x00000000     0x2927 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
+ .debug_line    0x00002927     0x1668 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_ZeroTimer_Library\Adafruit_ZeroTimer.cpp.o
+ .debug_line    0x00003f8f     0x1974 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o
+ .debug_line    0x00005903      0x6d4 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\core\variant.cpp.o
+ .debug_line    0x00005fd7     0x1e11 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Print.cpp.o)
+ .debug_line    0x00007de8     0x18ed C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SERCOM.cpp.o)
+ .debug_line    0x000096d5     0x11cc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Stream.cpp.o)
+ .debug_line    0x0000a8a1      0xdbf C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(CDC.cpp.o)
+ .debug_line    0x0000b660     0x5181 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(USBCore.cpp.o)
+ .debug_line    0x000107e1     0x12e9 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Uart.cpp.o)
+ .debug_line    0x00011aca      0x491 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
+ .debug_line    0x00011f5b      0x848 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
+ .debug_line    0x000127a3       0xd6 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(hooks.c.o)
+ .debug_line    0x00012879      0x80d C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(main.cpp.o)
+ .debug_line    0x00013086      0x432 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(new.cpp.o)
+ .debug_line    0x000134b8      0x77a C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(startup.c.o)
+ .debug_line    0x00013c32      0x7a0 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring.c.o)
+ .debug_line    0x000143d2      0xd41 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_analog.c.o)
+ .debug_line    0x00015113      0x64d C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_digital.c.o)
+ .debug_line    0x00015760      0x5fc C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(wiring_private.c.o)
+ .debug_line    0x00015d5c      0x910 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Reset.cpp.o)
+ .debug_line    0x0001666c      0xa38 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(PluggableUSB.cpp.o)
+ .debug_line    0x000170a4      0x804 C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(SAMD21_USBDevice.cpp.o)
 
 .debug_str      0x00000000     0xb541
  .debug_str     0x00000000     0x62da C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
@@ -4091,6 +4093,7 @@ svcHook                                           C:\Users\merce\AppData\Local\T
 sync                                              C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
 sysTickHook                                       C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(hooks.c.o)
                                                   C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(cortex_handlers.c.o)
+tbs                                               C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C\sketch\itsybitsy-m0_pwm_awg.ino.cpp.o
 tickReset                                         C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(Reset.cpp.o)
                                                   C:\Users\merce\AppData\Local\Temp\arduino\sketches\5182D73C0A39A26C8F020D00B404444C/..\..\cores\c4f6dc8b557e94643491f7539a102a4e\core.a(delay.c.o)
 tolower                                           c:/users/merce/appdata/local/arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-tolower.o)

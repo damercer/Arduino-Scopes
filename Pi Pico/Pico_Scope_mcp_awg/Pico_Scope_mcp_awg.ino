@@ -1,4 +1,5 @@
 //Pico_Scope3 3 channel scope with AWG using MCP dual 8/10/12 bit SPI DAC
+// (1/19/2024)
 #include "pico/stdlib.h"
 #include "hardware/adc.h"
 #include "hardware/pwm.h"
@@ -10,8 +11,8 @@
 #define ALARM_NUM 1
 #define ALARM_IRQ TIMER_IRQ_1
 
-int awgouta[4096];
-int awgoutb[4096];
+short awgouta[4096];
+short awgoutb[4096];
 
 int led = 25;
 int wavea;
@@ -22,7 +23,8 @@ int waveb;
 int cycleb;
 int amplb;
 int offsetb;
-int awgon;
+int awgona;
+int awgonb;
 int addr;
 int data;
 int awgdata;
@@ -33,7 +35,7 @@ uint32_t tg;
 int sync = 0;
 float Step;
 unsigned int at, at2, st, st2, stReal;
-int bmax=2048;
+int bmax=4096;
 int bs=1024;
 int ns=1024;
 int ms=1024;
@@ -41,21 +43,24 @@ int pwmf = 500;
 int pwid = 500;
 
 static void alarm_irq(void) {
-  if (awgon == 1){
-    if (n >= ns) n = 0;
-    if (m >= ms) m = 0;
-    int avalue = awgouta[n] | 0b0111000000000000; //DACA 
-    int bvalue = awgoutb[m] | 0b1111000000000000; //DACB 
-    SPI.transfer16(avalue);
-    SPI.transfer16(bvalue);
-    n++;
-    m++;
-  } else {
-    n = 0;
-    m = 0;
-  }
   hw_clear_bits(&timer_hw->intr, 1u << ALARM_NUM);
   alarm_in_us_arm(at);
+  if (awgona == 1){
+    if (n >= ns) n = 0;
+    //int avalue = awgouta[n] | 0b0111000000000000; //DACA 
+    SPI.transfer16(awgouta[n]);
+    n++;
+  } else {
+    n = 0;
+  }
+  if (awgonb == 1){
+    if (m >= ms) m = 0;
+    //int bvalue = awgoutb[m] | 0b1111000000000000; //DACB
+    SPI.transfer16(awgoutb[m]);
+    m++;
+  } else {
+    m = 0;
+  }
 }
 
 static void alarm_in_us_arm(uint32_t delay_us) {
@@ -80,7 +85,8 @@ void setup1() {
   cycleb = 8; // default is 8 cycles in 1024 samples
   amplb = 127; // default is 127 or full 0 to 255 peak to prak
   offsetb = 128; // default is 128 or mid range 0 to 255
-  awgon = 0; // default AWG off
+  awgona = 0; // default AWG off
+  awgonb = 0; // default AWG off
   //SPI.begin(true);
   //SPI.beginTransaction(SPISettings(20000000, MSBFIRST, SPI_MODE0));
   //alarm_in_us(at);
@@ -180,7 +186,7 @@ void loop() {
           } else {
             data = 0;
           }
-          awgouta[addr] = data;
+          awgouta[addr] = data | 0b0111000000000000; //DACA;
           break;
         case 'l': // load AWG B Buffer data
           addr = Serial.parseInt();
@@ -202,7 +208,7 @@ void loop() {
           } else {
             data = 0;
           }
-          awgoutb[addr] = data;
+          awgoutb[addr] = data | 0b1111000000000000; //DACB;
           break;
         case 't': // change the Scope value of dt in uSec
           st2 = Serial.parseInt();
@@ -248,12 +254,20 @@ void loop() {
           offsetb = Serial.parseInt();
           makewaveb();
           break;
-        case 'G': // enable - disable AWG output
+        case 'G': // enable - disable AWG A output
           c2 = Serial.read();
           if(c2=='o'){
-            awgon = 1;
+            awgona = 1;
           }else{
-            awgon = 0;
+            awgona = 0;
+          }
+          break;
+        case 'g': // enable - disable AWG B output
+          c2 = Serial.read();
+          if(c2=='o'){
+            awgonb = 1;
+          }else{
+            awgonb = 0;
           }
           break;
         case 'R': // Reset AWG start point at start of aquire
@@ -306,15 +320,16 @@ void loop() {
             while (ta>time_us_32());
           }
           TotalReal=time_us_32()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(led, HIGH); // Toggel LED High while sending data
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
             Serial.write(scopeahi[k]);
             Serial.write(scopealow[k]);
             Serial.write(digin[k]);
           }
+          Serial.println("");
           digitalWrite(led, LOW);
           break;
         case '1': // do scope ch a and b single capture
@@ -341,10 +356,10 @@ void loop() {
             while (ta>time_us_32());
           }
           TotalReal=time_us_32()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(led, HIGH); // Toggel LED High while sending data
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
             Serial.write(scopeahi[k]);
             Serial.write(scopealow[k]);
@@ -352,6 +367,7 @@ void loop() {
             Serial.write(scopeblow[k]);
             Serial.write(digin[k]);
           }
+          Serial.println("");
           digitalWrite(led, LOW);
           break;
         case '2': // do scope ch a and c single capture
@@ -378,10 +394,10 @@ void loop() {
             while (ta>time_us_32());
           }
           TotalReal=time_us_32()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(led, HIGH); // Toggel LED High while sending data
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
             Serial.write(scopeahi[k]);
             Serial.write(scopealow[k]);
@@ -389,6 +405,7 @@ void loop() {
             Serial.write(scopeclow[k]);
             Serial.write(digin[k]);
           }
+          Serial.println("");
           digitalWrite(led, LOW);
           break;
         case '3': // do scope ch b and c single capture
@@ -415,10 +432,10 @@ void loop() {
             while (ta>time_us_32());
           }
           TotalReal=time_us_32()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(led, HIGH); // Toggel LED High while sending data
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
             Serial.write(scopebhi[k]);
             Serial.write(scopeblow[k]);
@@ -426,6 +443,7 @@ void loop() {
             Serial.write(scopeclow[k]);
             Serial.write(digin[k]);
           }
+          Serial.println("");
           digitalWrite(led, LOW);
           break;
         case '4': // do scope ch a b and c single capture
@@ -456,10 +474,10 @@ void loop() {
             while (ta>time_us_32());
           }
           TotalReal=time_us_32()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(led, HIGH); // Toggel LED High while sending data
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
             Serial.write(scopeahi[k]);
             Serial.write(scopealow[k]);
@@ -469,6 +487,7 @@ void loop() {
             Serial.write(scopeclow[k]);
             Serial.write(digin[k]);
           }
+          Serial.println("");
           digitalWrite(led, LOW);
           break;
         case '5': // do scope ch b single capture
@@ -491,15 +510,16 @@ void loop() {
             while (ta>time_us_32());
           }
           TotalReal=time_us_32()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(led, HIGH); // Toggel LED High while sending data
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
             Serial.write(scopebhi[k]);
             Serial.write(scopeblow[k]);
             Serial.write(digin[k]);
           }
+          Serial.println("");
           digitalWrite(led, LOW);
           break;
         case '6': // do scope ch c single capture
@@ -522,15 +542,16 @@ void loop() {
             while (ta>time_us_32());
           }
           TotalReal=time_us_32()-StartReal;
-          stReal=TotalReal/bs; // calculate the average time for each reading
+          //stReal=TotalReal/bs; // calculate the average time for each reading
           digitalWrite(led, HIGH); // Toggel LED High while sending data
           Serial.print("stReal= ");
-          Serial.println(stReal);
+          Serial.println(TotalReal);
           for (int k = 0; k < bs; k++){ // Dunp Buffer over serial
             Serial.write(scopechi[k]);
             Serial.write(scopeclow[k]);
             Serial.write(digin[k]);
           }
+          Serial.println("");
           digitalWrite(led, LOW);
           break;
       }

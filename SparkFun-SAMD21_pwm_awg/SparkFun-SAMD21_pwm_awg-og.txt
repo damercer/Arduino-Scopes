@@ -496,8 +496,8 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal); // report total time for bs samples
           // dump buffer over serial
-          SerialUSB.write(scopea, sizeof(scopea));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopea, tbs);
+          SerialUSB.write(digin, tbs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -530,9 +530,9 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopea, sizeof(scopea));
-          SerialUSB.write(scopeb, sizeof(scopeb));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopea, tbs);
+          SerialUSB.write(scopeb, tbs);
+          SerialUSB.write(digin, tbs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -565,9 +565,9 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopea, sizeof(scopea));
-          SerialUSB.write(scopec, sizeof(scopec));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopea, tbs);
+          SerialUSB.write(scopec, tbs);
+          SerialUSB.write(digin, tbs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -601,9 +601,9 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopeb, sizeof(scopeb));
-          SerialUSB.write(scopec, sizeof(scopec));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopeb, tbs);
+          SerialUSB.write(scopec, tbs);
+          SerialUSB.write(digin, tbs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -639,10 +639,10 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopea, sizeof(scopea));
-          SerialUSB.write(scopeb, sizeof(scopeb));
-          SerialUSB.write(scopec, sizeof(scopec));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopea, tbs);
+          SerialUSB.write(scopeb, tbs);
+          SerialUSB.write(scopec, tbs);
+          SerialUSB.write(digin, tbs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -671,8 +671,8 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopeb, sizeof(scopeb));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopeb, tbs);
+          SerialUSB.write(digin, tbs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -702,8 +702,8 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopec, sizeof(scopec));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopec, tbs);
+          SerialUSB.write(digin, tbs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -733,8 +733,8 @@ void setup() {
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopea, sizeof(scopea));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopea, tbs);
+          SerialUSB.write(digin, tbs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -766,9 +766,9 @@ void setup() {
           SerialUSB.print("stReal= ");
           Serial.println(TotalReal);
           // Dump Buffer over serial
-          SerialUSB.write(scopea, sizeof(scopea));
-          SerialUSB.write(scopeb, sizeof(scopeb));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopea, tbs);
+          SerialUSB.write(scopeb, tbs);
+          SerialUSB.write(digin, tbs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -802,10 +802,10 @@ void setup() {
           digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
           SerialUSB.print("stReal= ");
           SerialUSB.println(TotalReal);
-          SerialUSB.write(scopea, sizeof(scopea));
-          SerialUSB.write(scopeb, sizeof(scopeb));
-          SerialUSB.write(scopec, sizeof(scopec));
-          SerialUSB.write(digin, sizeof(digin));
+          SerialUSB.write(scopea, tbs);
+          SerialUSB.write(scopeb, tbs);
+          SerialUSB.write(scopec, tbs);
+          SerialUSB.write(digin, tbs);
           SerialUSB.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)

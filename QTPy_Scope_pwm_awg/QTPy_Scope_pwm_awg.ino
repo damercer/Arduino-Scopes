@@ -1,4 +1,4 @@
-//QT Py Scope3 1/2/3 channel scope 1 internal awg (1/12/2024)
+//QT Py Scope3 1/2/3 channel scope 1 internal awg (1/18/2024)
 //
 //#include "arduino_m0_tweak.hpp"
 #include <Adafruit_ZeroTimer.h>
@@ -17,12 +17,12 @@ void multipleAnalogWrite(const int *pins, const int numberOfPins, uint8_t* value
 // timer tester
 Adafruit_ZeroTimer zerotimer = Adafruit_ZeroTimer(3);
 
-uint8_t scopea[2048];
-uint8_t scopeb[2048];
-uint8_t scopec[2048]; 
-uint8_t digin[1024];
-unsigned int awgouta[2048];
-unsigned int awgoutb[2048];
+uint8_t scopea[4096]; // Max Samples 1700
+uint8_t scopeb[4096];
+uint8_t scopec[4096]; 
+uint8_t digin[2048];
+short awgouta[2048];
+short awgoutb[2048];
 int wavea;
 int cyclea;
 int ampla;
@@ -39,6 +39,7 @@ float Step;
 unsigned int at, at2, st, st2, stReal;
 int bmax=2048;
 int bs=1024;
+int tbs=2048;
 int ns=1024;
 int ms=1024;
 int pwmf = 500;
@@ -432,6 +433,7 @@ void setup() {
           if(bs>bmax){
             bs=bmax;
           }
+          tbs = bs * 2;
           break;
         case 'W': // change waveform shape ch a
           wavea = Serial.parseInt();
@@ -572,8 +574,8 @@ void setup() {
           Serial.print("stReal= ");
           Serial.println(TotalReal);
           // dump buffer over serial
-          Serial.write(scopea, sizeof(scopea));
-          Serial.write(digin, sizeof(digin));
+          Serial.write(scopea, tbs);
+          Serial.write(digin, bs);
           Serial.println("");
           //
           digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
@@ -606,9 +608,9 @@ void setup() {
           Serial.print("stReal= ");
           Serial.println(TotalReal);
           // Dump Buffer over serial
-          Serial.write(scopea, sizeof(scopea));
-          Serial.write(scopeb, sizeof(scopeb));
-          Serial.write(digin, sizeof(digin));
+          Serial.write(scopea, tbs);
+          Serial.write(scopeb, tbs);
+          Serial.write(digin, bs);
           Serial.println("");
           //
           digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
@@ -641,9 +643,9 @@ void setup() {
           Serial.print("stReal= ");
           Serial.println(TotalReal);
           // Dump Buffer over serial
-          Serial.write(scopea, sizeof(scopea));
-          Serial.write(scopec, sizeof(scopec));
-          Serial.write(digin, sizeof(digin));
+          Serial.write(scopea, tbs);
+          Serial.write(scopec, tbs);
+          Serial.write(digin, bs);
           Serial.println("");
           //
           digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
@@ -677,9 +679,9 @@ void setup() {
           Serial.print("stReal= ");
           Serial.println(TotalReal);
           // Dump Buffer over serial
-          Serial.write(scopeb, sizeof(scopeb));
-          Serial.write(scopec, sizeof(scopec));
-          Serial.write(digin, sizeof(digin));
+          Serial.write(scopeb, tbs);
+          Serial.write(scopec, tbs);
+          Serial.write(digin, bs);
           Serial.println("");
           //
           digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
@@ -715,10 +717,10 @@ void setup() {
           Serial.print("stReal= ");
           Serial.println(TotalReal);
           // Dump Buffer over serial
-          Serial.write(scopea, sizeof(scopea));
-          Serial.write(scopeb, sizeof(scopeb));
-          Serial.write(scopec, sizeof(scopec));
-          Serial.write(digin, sizeof(digin));
+          Serial.write(scopea, tbs);
+          Serial.write(scopeb, tbs);
+          Serial.write(scopec, tbs);
+          Serial.write(digin, bs);
           Serial.println("");
           //
           digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
@@ -747,8 +749,8 @@ void setup() {
           Serial.print("stReal= ");
           Serial.println(TotalReal);
           // Dump Buffer over serial
-          Serial.write(scopeb, sizeof(scopeb));
-          Serial.write(digin, sizeof(digin));
+          Serial.write(scopeb, tbs);
+          Serial.write(digin, bs);
           Serial.println("");
           //
           digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
@@ -778,8 +780,8 @@ void setup() {
           Serial.print("stReal= ");
           Serial.println(TotalReal);
           // Dump Buffer over serial
-          Serial.write(scopec, sizeof(scopec));
-          Serial.write(digin, sizeof(digin));
+          Serial.write(scopec, tbs);
+          Serial.write(digin, bs);
           Serial.println("");
           //
           digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
@@ -809,8 +811,8 @@ void setup() {
           Serial.print("stReal= ");
           Serial.println(TotalReal);
           // Dump Buffer over serial
-          Serial.write(scopea, sizeof(scopea));
-          Serial.write(digin, sizeof(digin));
+          Serial.write(scopea, tbs);
+          Serial.write(digin, bs);
           Serial.println("");
           //
           digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
@@ -842,9 +844,9 @@ void setup() {
           Serial.print("stReal= ");
           Serial.println(TotalReal);
           // Dump Buffer over serial
-          Serial.write(scopea, sizeof(scopea));
-          Serial.write(scopeb, sizeof(scopeb));
-          Serial.write(digin, sizeof(digin));
+          Serial.write(scopea, tbs);
+          Serial.write(scopeb, tbs);
+          Serial.write(digin, bs);
           Serial.println("");
           //
           digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
@@ -878,10 +880,10 @@ void setup() {
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
           Serial.print("stReal= ");
           Serial.println(TotalReal);
-          Serial.write(scopea, sizeof(scopea));
-          Serial.write(scopeb, sizeof(scopeb));
-          Serial.write(scopec, sizeof(scopec));
-          Serial.write(digin, sizeof(digin));
+          Serial.write(scopea, tbs);
+          Serial.write(scopeb, tbs);
+          Serial.write(scopec, tbs);
+          Serial.write(digin, bs);
           Serial.println("");
           //
           digitalWrite(LED_BUILTIN, HIGH);  // turn the LED off (HIGH is the voltage level)
