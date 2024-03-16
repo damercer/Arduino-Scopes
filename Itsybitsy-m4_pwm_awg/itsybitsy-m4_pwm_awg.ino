@@ -1,5 +1,5 @@
 //ItsyBitsy M4 Express Scope3 1/2/3 channel scope 1 internal awg 
-// (12/26/2023)
+// (3/10/2024)
 #include <Adafruit_ZeroTimer.h>
 #include "Adafruit_NeoPixel.h"
 
@@ -9,47 +9,42 @@
 // How many NeoPixels are attached to the Arduino?
 #define NUMPIXELS 1 // Popular NeoPixel ring size
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
-#ifndef MULTIPLE_PIN_OPS_H
-#define MULTIPLE_PIN_OPS_H
-//
-//Adafruit_NeoPixel strip = Adafruit_NeoPixel(1, PIN_NEOPIXEL, NEO_GRB + NEO_KHZ800);
 
-void multiplePinMode(const int *pins, const int numberOfPins, uint8_t mode);
-void multipleDigitalWrite(const int *pins, const int numberOfPins, uint16_t number);
-uint64_t multipleDigitalRead(const int *pins, const int numberOfPins);
-void multipleAnalogRead(const int *pins, const int numberOfPins, int *values);
-void multipleAnalogWrite(const int *pins, const int numberOfPins, uint8_t* values);
-
-#endif // MULTIPLE_PIN_OPS_H
 // timer tester
 Adafruit_ZeroTimer zerotimer = Adafruit_ZeroTimer(3);
 
-uint8_t scopea[2048];
-uint8_t scopeb[2048];
-uint8_t scopec[2048]; 
-uint8_t digin[1024];
-unsigned int awgouta[2048];
-unsigned int awgoutb[2048];
-int wavea;
-int cyclea;
-int ampla;
-int offseta;
-int awgona;
-int awgonb;
-int awgpwnon;
-int awgres;
-int addr;
-int data;
-int awgdata;
-int n;
-int m;
-int sync = 0;
-float Step;
+uint8_t scopea[16384]; // 14336/8 ~ 1700 max samples
+short awgouta[2048];
+short awgoutb[2048];
+
+short awgona;
+short awgonb;
+//short awgpwnon;
+short awgres;
+short addr;
+short data;
+//int awgdata;
+short n;
+short m;
+short sync = 0;
+short point = 0;
+// Stefloatp;
 unsigned int at, at2, st, st2, stReal;
-int bmax=2048;
-int bs=1024;
-int ns=1024;
-int ms=1024;
+short amax=2048; // Max length of AWG memory
+short bmax=2048; // = 16384 / 8 Max number of capture memory per channel
+uint16_t bs=1024;
+uint16_t tbs=2048;
+uint16_t rbs=3072;
+uint16_t fbs=4096;
+uint16_t vbs=5120;
+uint16_t sbs=6144;
+uint16_t ebs=7168;
+uint16_t gbs=8192;
+short dy=4;
+uint8_t gn = 0xF; // default to gain of 1
+uint8_t vn = 0x1;
+uint16_t ns=1024;
+uint16_t ms=1024;
 int pwmf = 500;
 int pwid = 500;
 //
@@ -101,7 +96,7 @@ void ADC_init() {
 
   // The ADC clock must remain below 16 MHz, see SAMD51 datasheet table 54-24.
   // Hence, don't go below DIV4 @ 48 MHz.
-  ADC0->CTRLA.bit.PRESCALER = ADC_CTRLA_PRESCALER_DIV16_Val;
+  ADC0->CTRLA.bit.PRESCALER = ADC_CTRLA_PRESCALER_DIV8_Val; // ADC_CTRLA_PRESCALER_DIV16_Val;
   syncADC(ADC0, ADC_SYNCBUSY_MASK);
 
   // AnalogRead resolution
@@ -118,7 +113,7 @@ void ADC_init() {
   // default 5, stable 14 @ DIV16 & SAMPLENUM_4
   ADC0->SAMPCTRL.bit.OFFCOMP = 0; // When set to 1, SAMPLEN must be set to 0
   syncADC(ADC0, ADC_SYNCBUSY_MASK);
-  ADC0->SAMPCTRL.bit.SAMPLEN = 4;
+  ADC0->SAMPCTRL.bit.SAMPLEN = dy;
   syncADC(ADC0, ADC_SYNCBUSY_MASK);
 
   ADC0->INPUTCTRL.bit.DIFFMODE = 0;
@@ -149,103 +144,23 @@ int16_t ADC_read_signal(int pin) {
   while (!ADC0->INTFLAG.bit.RESRDY) {} // Wait for result ready to be read
   return ADC0->RESULT.reg;             // Read result
 }
-//
-void multiplePinMode(const int *pins, const int numberOfPins, uint8_t mode) {
-  for (uint8_t i  = 0; i < numberOfPins; i++) {
-    if (mode == INPUT_PULLUP) pinMode(pins[i], INPUT_PULLUP);
-    else if (mode == OUTPUT) pinMode(pins[i], OUTPUT);
-    else pinMode(pins[i], INPUT);
-  }
-}
-
-uint64_t multipleDigitalRead(const int *pins, const int numberOfPins) {
-  uint16_t value = 0;
-  for (uint8_t i = 0; i < numberOfPins; i++) {
-    if (digitalRead(pins[i])) {
-      value += (uint16_t) (1 << i);
-    }
-  }
-  return value;
-}
-
-float nextVal (float curr, int min, int max) {
-    // Handle situations where you want to turn around.
-    if ((curr == min) || (curr == max)) {
-        Step = -(Step);
-        return curr + Step;
-    }
-    // Handle situation where you would exceed your bounds (just
-    //   go to the bound).
-    if (curr + Step < min) return min;
-    if (curr + Step > max) return max;
-    // Otherwise, just move within the bounds.
-    return curr + Step;
-}
 // DAC output timer function fixed length of 1024 for now
 void updatedac() {
   if (awgona) {
     if (n >= ns) n = 0;
-    analogWrite(A0, awgouta[n]);
+    DAC->DATA[0].reg = awgouta[n]; // analogWrite(A0, awgouta[n]);
     n++;
   } else {
-    analogWrite(A0, 0);
+    DAC->DATA[0].reg = 0; // analogWrite(A0, 0);
     n = 0;
   }
   if (awgonb) {
     if (m >= ms) m = 0;
-    analogWrite(A1, awgoutb[m]); // pwm(A10, pwmf, awgoutb[m]);
+    DAC->DATA[1].reg = awgoutb[m]; // analogWrite(A1, awgoutb[m]); // pwm(A10, pwmf, awgoutb[m]);
       m++;
   } else {
-    analogWrite(A1, 0);
+    DAC->DATA[1].reg = awgoutb[m]; // analogWrite(A1, 0);
     m = 0;
-  }
-}
-// internal fill waveform array
-void makewavea() {
-  int Vmin = offseta - ampla;
-  if(Vmin > 1023){
-    Vmin=1023;
-  }
-  if(Vmin < 0){
-    Vmin=0;
-  }
-  int Vmax = offseta + ampla;
-  if(Vmax > 1023){
-    Vmax=1023;
-  }
-  if(Vmax < 0){
-    Vmax=0;
-  }
-  float Curr = Vmin;
-  Step = ((Vmax-Vmin)/1023.0)*(cyclea/2.0);
-
-  if (wavea == 1) { // make a sine wave shape
-    for (int j = 0; j < ns; j++){
-      int temp = offseta + (ampla * sin(2*cyclea*PI*j/ns));
-      if(temp > 1023){
-        temp=1023;
-      }
-      if(temp < 0){
-        temp=0;
-      }
-      awgouta[j] = temp;
-    }
-  } else if(wavea == 2){ // make a triangle wave shape
-    for (int j = 0; j < ns; j++){
-      float temp = nextVal(Curr, Vmin, Vmax);
-      Curr = temp;
-      if(temp > 1023){
-        temp=1023;
-      }
-      if(temp < 0){
-        temp=0;
-      }
-      awgouta[j] = int(temp);
-    }
-  } else { // make a DC value = offset
-    for (int j = 0; j < ns; j++){
-      awgouta[j] = offseta;
-    }
   }
 }
 
@@ -254,42 +169,28 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, LOW);
   RGB_LED_off();
-  wavea = 1; // default to sine shape (for now)
-  cyclea = 8; // default is 8 cycles in 1024 samples
-  ampla = 500; // default is 127 or full 0 to 255 peak to prak
-  offseta = 512; // default is 128 or mid range 0 to 255
   awgona = 0; // default AWG a off
   awgonb = 0; // default AWG b off
-  awgres = 4095;
-  makewavea();   
-  int measa;
-  int measb;
-  int measc;
-  int digmeas;
+  awgres = 4095;  
+  short measa;
+  short measb;
+  short measc;
+  short measd;
+  short digmeas;
   //int VDD;
   char c, c2;
   uint32_t ta, TotalReal, StartReal;
-  st=11;
-  at=25;
-  int Ain1;
-  Ain1 = 2; // pin number for A1
-  int Ain2;
-  Ain2 = 3; // pin number for A2
-  int Ain3;
-  Ain3 = 4; // pin number for A3
-  //
-  //pinMode(A1, INPUT);
-  //pinMode(A2, INPUT);
-  //pinMode(A3, INPUT);
-  //pinMode(A4, INPUT);
-  //pinMode(A5, INPUT);
-  //pinMode(A6, INPUT);
-  //pinMode(A7, INPUT);
-  //pinMode(A8, INPUT);
-  //pinMode(A9, INPUT);
-  //const int numberOfInputPins = 6;
-  //const int inputPins[numberOfInputPins] = {A6, A7, A8, A9}; // pins to use as inputs
-  //multiplePinMode(inputPins, numberOfInputPins, INPUT);
+  st=10;
+  at=10;
+  short Ain1;
+  Ain1 = 2; // pin number for A2
+  short Ain2;
+  Ain2 = 3; // pin number for A3
+  short Ain3;
+  Ain3 = 4; // pin number for A4
+  short Ain4;
+  Ain4 = 6; // pin number for A5
+  
   // Set up the flexible divider/compare
   uint16_t divider  = 1;
   uint16_t compare = 0;
@@ -307,19 +208,23 @@ void setup() {
   //Timer3.attachInterrupt(updatedac);
   zerotimer.setCallback(true, TC_CALLBACK_CC_CHANNEL0, updatedac);
   //
-  //m0tweak::cpuFrequency(64);
-  //m0tweak::adcPrecision(12);
+  pinMode(2, INPUT);
+  pinMode(3, INPUT);
+  pinMode(4, INPUT);
+  //pinMode(5, INPUT); 
+  pinMode(6, INPUT);
   analogWriteResolution(12);
+  analogWrite(A0, 0); // DAC 0 out
+  analogWrite(A1, 0); // DAC 1 out
   //analogReadResolution(12);
   ADC_init();
-  //ADC->CTRLB.reg = ADC_CTRLB_PRESCALER_DIV32;
-  //pinMode(A3, INPUT); 
+  //
   while (true) { 
     if (Serial.available()){
       c=Serial.read();
       switch (c){
         case 'I': // read back FW Rev
-          Serial.println ("Bitsy M4 Scope 3.0");
+          Serial.println ("Bitsy M4 Scope 4.0");
           break;
         case 'T': // change the AWG value of at in uSec both channels must be same rate
           at2 = Serial.parseInt();
@@ -328,10 +233,6 @@ void setup() {
             //zerotimer.enable(false);
             compare = 48*at;
             zerotimer.setCompare(0, compare);
-            //Timer3.detachInterrupt();
-            //Timer3.initialize(at);
-            //zerotimer.enable(true);
-            //Timer3.attachInterrupt(updatedac);
           }
           break;
         case 'N': // change number of AWG A samples 
@@ -400,23 +301,43 @@ void setup() {
           bs = Serial.parseInt();
           if(bs>bmax){
             bs=bmax;
+          tbs = bs * 2;
           }
+          tbs = bs * 2;
+          rbs = bs * 3;
+          fbs = bs * 4;
+          vbs = bs * 5;
+          sbs = bs * 6;
+          ebs = bs * 7;
+          gbs = bs * 8;
           break;
-        case 'W': // change waveform shape ch a
-          wavea = Serial.parseInt();
-          makewavea();
+        case 'd': // set ADC settling delay
+          // Sampling length, larger means increased max input impedance
+          // default 63, stable 32 @ DIV32 & SAMPLENUM_4
+          dy = Serial.parseInt();
+          ADC0->SAMPCTRL.bit.SAMPLEN = dy;
           break;
-        case 'A': // change waveform amplitude 0 to 127 ch a
-          ampla = Serial.parseInt();
-          makewavea();
+        case 'h': // set ADC gain setting
+          // 
+          gn = Serial.parseInt();
+          //ADC0->INPUTCTRL.bit.GAIN = gn & 0xF; // ADC_INPUTCTRL_GAIN_DIV2_Val;
+          syncADC(ADC0, ADC_SYNCBUSY_MASK);
           break;
-        case 'C': // change number of waveform cycles ch a
-          cyclea = Serial.parseInt();
-          makewavea();
-          break;
-        case 'O': // change waveform offset 0 to 255 ch a
-          offseta = Serial.parseInt();
-          makewavea();
+        case 'v': // set ADC Reference setting
+          // 
+          vn = Serial.parseInt();
+          if(vn == 0){
+            ADC0->REFCTRL.bit.REFSEL = 0x1; //ADC_REFCTRL_REFSEL_INT1V_Val; // 1.0V voltage reference
+          }
+          if(vn == 1){
+            ADC0->REFCTRL.bit.REFSEL = ADC_REFCTRL_REFSEL_INTVCC0_Val; // 1/1.48 VDDANA = 1/1.48* 3V3 = 2.2297
+          }
+          if(vn == 2){
+            ADC0->REFCTRL.bit.REFSEL = ADC_REFCTRL_REFSEL_INTVCC1_Val; // 1/2 VDDANA
+          }
+          if(vn == 3){
+            ADC0->REFCTRL.bit.REFSEL = ADC_REFCTRL_REFSEL_AREFA_Val; // Use external Ref voltage 
+          }
           break;
         case 'G': // enable - disable AWG output
           c2 = Serial.read();
@@ -456,20 +377,18 @@ void setup() {
             //Timer3.detachInterrupt();
           }
           break;
-        case 'R': // Reset AWG start point at start of aquire
-          c2 = Serial.read();
-          if(c2=='o'){
-            sync = 1;
-          }else{
-            sync = 0;
-          }
+        case 'R': // Reset AWG start point at start of aquire if > 0 and set delay in uSec
+          sync = Serial.parseInt();
+          break;
+        case 'r': // Set AWG start address when case R > 0
+          point = Serial.parseInt();
           break;
         case 's': // enable - disable PWM output awgpwnon
           c2 = Serial.read();
           if(c2=='o'){
-            analogWrite(A5, pwid); //pwm(A10, pwmf, pwid);
+            analogWrite(A6, pwid); //pwm(A10, pwmf, pwid);
           }else{
-            analogWrite(A5, 0); //pwm(A10, pwmf, 0);
+            analogWrite(A6, 0); //pwm(A10, pwmf, 0);
           }
           break;
         case 'p': // change analog write pwm frequency value
@@ -480,55 +399,32 @@ void setup() {
           pwid = Serial.parseInt(); // range from 0 (0%) to 1000 (100%)
           analogWrite(A5, pwid); // pwm(A10, pwmf, pwid);
           break;
-        case '0': // do scope ch a single capture
-        // if sync is on reset start of awg buffer pointer
-          if (sync > 0 ) {
-            n = 0;
-            m = 0;
-            delayMicroseconds(10);
-          }
-          ta = micros();
-          StartReal = ta;
-          for (int n = 0; n < bs; n++){ // Fill Buffer
-            measa = ADC_read_signal(Ain1); // analogRead(A1);
-            scopea[n] = (measa & 0xFF00) >> 8;
-            scopea[n+bs] = measa & 0xFF;
-            digmeas = 0; // digitalRead(A6);
-            digin[n]= digmeas & 0x3F;
-            ta+=st;
-            while (ta>micros());
-          }
-          TotalReal=micros()-StartReal;
-          //stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
-          Serial.print("stReal= ");
-          Serial.println(TotalReal);
-          // dump buffer over serial
-          Serial.write(scopea, sizeof(scopea));
-          Serial.write(digin, sizeof(digin));
-          Serial.println("");
-          //
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
+        case 'A': // set input pin value for scope channel Ain1
+          Ain1 = Serial.parseInt();
           break;
-          //
+        case 'B': // set input pin value for scope channel Ain2
+          Ain2 = Serial.parseInt();
+          break;
+        case 'C': // set input pin value for scope channel Ain3
+          Ain3 = Serial.parseInt();
+          break;
+        case 'D': // set input pin value for scope channel Ain4
+          Ain4 = Serial.parseInt();
+          break;
+        // Read ADC channels
         case '1': // do scope ch a and b single capture
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
-            n = 0;
-            m = 0;
-            delayMicroseconds(10);
+            n = point;
+            m = point;
+            delayMicroseconds(sync);
           }
           ta = micros();
           StartReal = ta;
-          for (int n = 0; n < bs; n++){ // Fill Buffer
+          for (int i = 0; i < bs; i++){ // Fill Buffer
             measa = ADC_read_signal(Ain1); // analogRead(A1);
-            measb = ADC_read_signal(Ain2); // analogRead(A2);
-            digmeas = 0; // digitalRead(A6);
-            scopea[n] = (measa & 0xFF00) >> 8;
-            scopea[n+bs] = measa & 0xFF;
-            scopeb[n] = (measb & 0xFF00) >> 8;
-            scopeb[n+bs] = measb & 0xFF;
-            digin[n]= digmeas & 0x3F;
+            scopea[i] = (measa & 0xFF00) >> 8;
+            scopea[i+bs] = measa & 0xFF;
             ta+=st;
             while (ta>micros());
           }
@@ -538,9 +434,7 @@ void setup() {
           Serial.print("stReal= ");
           Serial.println(TotalReal);
           // Dump Buffer over serial
-          Serial.write(scopea, sizeof(scopea));
-          Serial.write(scopeb, sizeof(scopeb));
-          Serial.write(digin, sizeof(digin));
+          Serial.write(scopea, tbs);
           Serial.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -549,21 +443,19 @@ void setup() {
         case '2': // do scope ch a and c single capture
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
-            n = 0;
-            m = 0;
-            delayMicroseconds(10);
+            n = point;
+            m = point;
+            delayMicroseconds(sync);
           }
           ta = micros();
           StartReal = ta;
-          for (int n = 0; n < bs; n++){ // Fill Buffer
+          for (int i = 0; i < bs; i++){ // Fill Buffer
             measa = ADC_read_signal(Ain1); // analogRead(A1);
-            measc = ADC_read_signal(Ain3); // analogRead(A3);
-            digmeas = 0; // digitalRead(A6);
-            scopea[n] = (measa & 0xFF00) >> 8;
-            scopea[n+bs] = measa & 0xFF;
-            scopec[n] = (measc & 0xFF00) >> 8;
-            scopec[n+bs] = measc & 0xFF;
-            digin[n]= digmeas & 0x3F;
+            measb = ADC_read_signal(Ain2); // analogRead(A2);
+            scopea[i] = (measa & 0xFF00) >> 8;
+            scopea[i+bs] = measa & 0xFF;
+            scopea[i+tbs] = (measb & 0xFF00) >> 8;
+            scopea[i+rbs] = measb & 0xFF;
             ta+=st;
             while (ta>micros());
           }
@@ -573,33 +465,31 @@ void setup() {
           Serial.print("stReal= ");
           Serial.println(TotalReal);
           // Dump Buffer over serial
-          Serial.write(scopea, sizeof(scopea));
-          Serial.write(scopec, sizeof(scopec));
-          Serial.write(digin, sizeof(digin));
+          Serial.write(scopea, fbs);
           Serial.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
-          Serial.println("");
           break;
           //
         case '3': // do scope ch b and c single capture
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
-            n = 0;
-            m = 0;
-            delayMicroseconds(10);
+            n = point;
+            m = point;
+            delayMicroseconds(sync);
           }
           ta = micros();
           StartReal = ta;
-          for (int n = 0; n < bs; n++){ // Fill Buffer
+          for (int i = 0; i < bs; i++){ // Fill Buffer
+            measa = ADC_read_signal(Ain1); // analogRead(A1);
             measb = ADC_read_signal(Ain2); // analogRead(A2);
             measc = ADC_read_signal(Ain3); // analogRead(A3);
-            digmeas = 0; // digitalRead(A6);
-            scopeb[n] = (measb & 0xFF00) >> 8;
-            scopeb[n+bs] = measb & 0xFF;
-            scopec[n] = (measc & 0xFF00) >> 8;
-            scopec[n+bs] = measc & 0xFF;
-            digin[n]= digmeas & 0x3F;
+            scopea[i] = (measa & 0xFF00) >> 8;
+            scopea[i+bs] = measa & 0xFF;
+            scopea[i+tbs] = (measb & 0xFF00) >> 8;
+            scopea[i+rbs] = measb & 0xFF;
+            scopea[i+fbs] = (measc & 0xFF00) >> 8;
+            scopea[i+vbs] = measc & 0xFF;
             ta+=st;
             while (ta>micros());
           }
@@ -609,9 +499,7 @@ void setup() {
           Serial.print("stReal= ");
           Serial.println(TotalReal);
           // Dump Buffer over serial
-          Serial.write(scopeb, sizeof(scopeb));
-          Serial.write(scopec, sizeof(scopec));
-          Serial.write(digin, sizeof(digin));
+          Serial.write(scopea, sbs);
           Serial.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
@@ -620,24 +508,25 @@ void setup() {
         case '4': // do scope ch a b and c single capture
         // if sync is on reset start of awg buffer pointer
           if (sync > 0 ) {
-            n = 0;
-            m = 0;
-            delayMicroseconds(10);
+            n = point;
+            m = point;
+            delayMicroseconds(sync);
           }
           ta = micros();
           StartReal = ta;
-          for (int n = 0; n < bs; n++){ // Fill Buffer
+          for (int i = 0; i < bs; i++){ // Fill Buffer
             measa = ADC_read_signal(Ain1); // analogRead(A1);
             measb = ADC_read_signal(Ain2); // analogRead(A2);
             measc = ADC_read_signal(Ain3); // analogRead(A3);
-            digmeas = 0; // digitalRead(A6);
-            scopea[n] = (measa & 0xFF00) >> 8;
-            scopea[n+bs] = measa & 0xFF;
-            scopeb[n] = (measb & 0xFF00) >> 8;
-            scopeb[n+bs] = measb & 0xFF;
-            scopec[n] = (measc & 0xFF00) >> 8;
-            scopec[n+bs] = measc & 0xFF;
-            digin[n]= digmeas & 0x3F;
+            measd = ADC_read_signal(Ain4); // analogRead(A4);
+            scopea[i] = (measa & 0xFF00) >> 8;
+            scopea[i+bs] = measa & 0xFF;
+            scopea[i+tbs] = (measb & 0xFF00) >> 8;
+            scopea[i+rbs] = measb & 0xFF;
+            scopea[i+fbs] = (measc & 0xFF00) >> 8;
+            scopea[i+vbs] = measc & 0xFF;
+            scopea[i+sbs] = (measd & 0xFF00) >> 8;
+            scopea[i+ebs] = measd & 0xFF;
             ta+=st;
             while (ta>micros());
           }
@@ -647,178 +536,12 @@ void setup() {
           Serial.print("stReal= ");
           Serial.println(TotalReal);
           // Dump Buffer over serial
-          Serial.write(scopea, sizeof(scopea));
-          Serial.write(scopeb, sizeof(scopeb));
-          Serial.write(scopec, sizeof(scopec));
-          Serial.write(digin, sizeof(digin));
+          Serial.write(scopea, gbs);
           Serial.println("");
           //
           digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
           break;
-        case '5': // do scope ch b single capture
-        // if sync is on reset start of awg buffer pointer
-          if (sync > 0 ) {
-            n = 0;
-            m = 0;
-            delayMicroseconds(10);
-          }
-          ta = micros();
-          StartReal = ta;
-          for (int n = 0; n < bs; n++){ // Fill Buffer
-            measb = ADC_read_signal(Ain2); // analogRead(A2);
-            scopeb[n] = (measb & 0xFF00) >> 8;
-            scopeb[n+bs] = measb & 0xFF;
-            digmeas = 0; // digitalRead(A6);
-            digin[n]= digmeas & 0x3F;
-            ta+=st;
-            while (ta>micros());
-          }
-          TotalReal=micros()-StartReal;
-          //stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
-          Serial.print("stReal= ");
-          Serial.println(TotalReal);
-          // Dump Buffer over serial
-          Serial.write(scopeb, sizeof(scopeb));
-          Serial.write(digin, sizeof(digin));
-          Serial.println("");
-          //
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
-          break;
-          //
-        case '6': // do scope ch c single capture
-        // if sync is on reset start of awg buffer pointer
-          if (sync > 0 ) {
-            n = 0;
-            m = 0;
-            delayMicroseconds(10);
-          }
-          ta = micros();
-          StartReal = ta;
-          for (int n = 0; n < bs; n++){ // Fill Buffer
-            measc = ADC_read_signal(Ain3); // analogRead(A3);
-            scopec[n] = (measc & 0xFF00) >> 8;
-            scopec[n+bs] = measc & 0xFF;
-            digmeas = 0; // digitalRead(A6);
-            digin[n]= digmeas & 0x3F;
-            ta+=st;
-            while (ta>micros());
-          }
-          TotalReal=micros()-StartReal;
-          //stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
-          Serial.print("stReal= ");
-          Serial.println(TotalReal);
-          // Dump Buffer over serial
-          Serial.write(scopec, sizeof(scopec));
-          Serial.write(digin, sizeof(digin));
-          Serial.println("");
-          //
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
-          break;
-          //
-        case '7': // do scope ch a single capture
-        // if sync is on reset start of awg buffer pointer
-          if (sync > 0 ) {
-            n = 0;
-            m = 0;
-            delayMicroseconds(10);
-          }
-          ta = micros();
-          StartReal = ta;
-          for (int n = 0; n < bs; n++){ // Fill Buffer
-            measa = ADC_read_signal(Ain1); // analogRead(A1);
-            scopea[n] = (measa & 0xFF00) >> 8;
-            scopea[n+bs] = measa & 0xFF;
-            digmeas = 0; // multipleDigitalRead(inputPins, numberOfInputPins); // returns corresponding decimal number reading fom input pins
-            digin[n]= digmeas & 0x3F;
-            ta+=st;
-            while (ta>micros());
-          }
-          TotalReal=micros()-StartReal;
-          //stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
-          Serial.print("stReal= ");
-          Serial.println(TotalReal);
-          // Dump Buffer over serial
-          Serial.write(scopea, sizeof(scopea));
-          Serial.write(digin, sizeof(digin));
-          Serial.println("");
-          //
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
-          break;
-        case '8': // do scope ch a and b single capture
-        // if sync is on reset start of awg buffer pointer
-          if (sync > 0 ) {
-            n = 0;
-            m = 0;
-            delayMicroseconds(10);
-          }
-          ta = micros();
-          StartReal = ta;
-          for (int n = 0; n < bs; n++){ // Fill Buffer
-            measa = ADC_read_signal(Ain1); // analogRead(A1);
-            scopea[n] = (measa & 0xFF00) >> 8;
-            scopea[n+bs] = measa & 0xFF;
-            measb = ADC_read_signal(Ain2); // analogRead(A2);
-            scopeb[n] = (measb & 0xFF00) >> 8;
-            scopeb[n+bs] = measb & 0xFF;
-            digmeas = 0; // multipleDigitalRead(inputPins, numberOfInputPins); // returns corresponding decimal number reading fom input pins
-            digin[n]= digmeas & 0x3F;
-            ta+=st;
-            while (ta>micros());
-          }
-          TotalReal=micros()-StartReal;
-          //stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
-          Serial.print("stReal= ");
-          Serial.println(TotalReal);
-          // Dump Buffer over serial
-          Serial.write(scopea, sizeof(scopea));
-          Serial.write(scopeb, sizeof(scopeb));
-          Serial.write(digin, sizeof(digin));
-          Serial.println("");
-          //
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
-          break;
-        case '9': // do scope ch a b and c single capture
-        // if sync is on reset start of awg buffer pointer
-          if (sync > 0 ) {
-            n = 0;
-            m = 0;
-            delayMicroseconds(10);
-          }
-          ta = micros();
-          StartReal = ta;
-          for (int n = 0; n < bs; n++){ // Fill Buffer
-            measa = ADC_read_signal(Ain1); // analogRead(A1);
-            scopea[n] = (measa & 0xFF00) >> 8;
-            scopea[n+bs] = measa & 0xFF;
-            measb = ADC_read_signal(Ain2); // analogRead(A2);
-            scopeb[n] = (measb & 0xFF00) >> 8;
-            scopeb[n+bs] = measb & 0xFF;
-            measc = ADC_read_signal(Ain3); // analogRead(A3);
-            scopec[n] = (measc & 0xFF00) >> 8;
-            scopec[n+bs] = measc & 0xFF;
-            digmeas = 0; // multipleDigitalRead(inputPins, numberOfInputPins); // returns corresponding decimal number reading fom input pins
-            digin[n]= digmeas & 0x3F;
-            ta+=st;
-            while (ta>micros());
-          }
-          TotalReal=micros()-StartReal;
-          //stReal=TotalReal/bs; // calculate the average time for each reading
-          digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
-          Serial.print("stReal= ");
-          Serial.println(TotalReal);
-          Serial.write(scopea, sizeof(scopea));
-          Serial.write(scopeb, sizeof(scopeb));
-          Serial.write(scopec, sizeof(scopec));
-          Serial.write(digin, sizeof(digin));
-          Serial.println("");
-          //
-          digitalWrite(LED_BUILTIN, LOW);  // turn the LED off (HIGH is the voltage level)
-          break;
-          //
+        
         //delay(1);
       }
     }
