@@ -1,4 +1,4 @@
-//XIAO Scope 4 exp 1/2/3/4 analog channel scope 1 internal awg 5 digital inputs (3/5/2024)
+//XIAO Scope 4 exp 1/2/3/4 analog channel scope 1 internal awg 2 PWM outputs (5/14/2024)
 //
 #include <TimerTC3.h>
 
@@ -33,8 +33,10 @@ uint8_t gn = 0xF; // default to gain of 1
 uint8_t vn = 0x1;
 uint16_t ns=1024;
 uint16_t ms=1024;
-int pwmf = 500;
-int pwid = 500;
+int pwmf1 = 500;
+int pwmd1 = 500;
+int pwmf2 = 500;
+int pwmd2 = 500;
 //
 static inline void syncADC() {
   // Taken from `hri_adc_d21.h`
@@ -191,12 +193,12 @@ void setup() {
   pinMode(A2, INPUT);
   pinMode(A3, INPUT);
   pinMode(A4, INPUT);
+  pinMode(A5, INPUT);
+  pinMode(A6, INPUT);
+  pinMode(A7, INPUT);
+  pinMode(A8, INPUT);
+  // pinMode(D9, OUTPUT);
   // pinMode(D10, OUTPUT);
-  pinMode(D5, INPUT);
-  pinMode(D6, INPUT);
-  pinMode(D7, INPUT);
-  pinMode(D8, INPUT);
-  pinMode(D9, INPUT);
   while (true) { 
     if (Serial.available()){
       c=Serial.read();
@@ -348,30 +350,42 @@ void setup() {
           break;
         case 's': // enable - disable PWM output
           c2 = Serial.read();
-          if(c2=='o'){
-            // set digital pin to high current mode
-            //TCC1->PER.reg = pwmf; 
-            //pwm(D10, 500, 0);
-            //TCC1->CC[0].reg = pwid; 
-            pwm(D10, pwmf, pwid);
+          if(c2=='1'){
+            pwm(D10, pwmf1, pwmd1);
             PORT->Group[g_APinDescription[D10].ulPort].PINCFG[g_APinDescription[D10].ulPin].bit.DRVSTR = 1;
-          }else{
-            //TCC1->CC[0].reg = 0;
-            pwm(D10, pwmf, 0);
+          }
+          if(c2=='x'){
+            pwm(D10, pwmf1, 0);
             PORT->Group[g_APinDescription[D10].ulPort].PINCFG[g_APinDescription[D10].ulPin].bit.DRVSTR = 0;
+          }
+          if(c2=='2'){
+            pwm(D9, pwmf2, pwmd2);
+            PORT->Group[g_APinDescription[D9].ulPort].PINCFG[g_APinDescription[D9].ulPin].bit.DRVSTR = 1;
+          }
+          if(c2=='y'){
+            pwm(D9, pwmf2, 0);
+            PORT->Group[g_APinDescription[D9].ulPort].PINCFG[g_APinDescription[D9].ulPin].bit.DRVSTR = 0;
           }
           break;
         case 'p': // change analog write pwm frequency value
-          pwmf = Serial.parseInt();
-          //TCC1->PER.reg = 8192;
-          pwm(D10, pwmf, pwid);
+          pwmf1 = Serial.parseInt();
+          pwm(D10, pwmf1, pwmd1);
           PORT->Group[g_APinDescription[D10].ulPort].PINCFG[g_APinDescription[D10].ulPin].bit.DRVSTR = 1;
           break;
+        case 'q': // change analog write pwm frequency value
+          pwmf2 = Serial.parseInt();
+          pwm(D9, pwmf2, pwmd2);
+          PORT->Group[g_APinDescription[D9].ulPort].PINCFG[g_APinDescription[D9].ulPin].bit.DRVSTR = 1;
+          break;
         case 'm': // change pwm duty cycle % 
-          pwid = Serial.parseInt(); // range from 0 (0%) to 1000 (100%)
-          //TCC1->CC[0].reg = pwid;
-          pwm(D10, pwmf, pwid);
+          pwmd1 = Serial.parseInt(); // range from 0 (0%) to 1000 (100%)
+          pwm(D10, pwmf1, pwmd1);
           PORT->Group[g_APinDescription[D10].ulPort].PINCFG[g_APinDescription[D10].ulPin].bit.DRVSTR = 1;
+          break;
+        case 'n': // change pwm duty cycle % 
+          pwmd2 = Serial.parseInt(); // range from 0 (0%) to 1000 (100%)
+          pwm(D9, pwmf2, pwmd2);
+          PORT->Group[g_APinDescription[D9].ulPort].PINCFG[g_APinDescription[D9].ulPin].bit.DRVSTR = 1;
           break;
         case 'A': // set input pin value for scope channel Ain1
           Ain1 = Serial.parseInt();
